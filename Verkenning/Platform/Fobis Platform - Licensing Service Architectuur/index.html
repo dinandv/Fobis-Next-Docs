@@ -1,0 +1,2013 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Verkenning, architectuur en marketing rond FOBIS Next en het FOBIS Platform.">
+      
+      
+        <meta name="author" content="FOBIS">
+      
+      
+      
+        <link rel="prev" href="../Fobis%20Platform%20-%20Deploymentmodellen%20%28On-prem%2C%20Hybride%2C%20SaaS%29/">
+      
+      
+        <link rel="next" href="../Fobis%20Platform%20-%20Logging%20en%20Observability/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Licensing Service Architectuur - FOBIS Platform Verkenning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Exo 2";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/fobis-next.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fobis-platform-licensing-service-architectuur" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FOBIS Platform Verkenning" class="md-header__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FOBIS Platform Verkenning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Licensing Service Architectuur
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FOBIS Platform Verkenning" class="md-nav__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FOBIS Platform Verkenning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkenning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verkenning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Inspiratiedocument/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspiratie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Visie%20en%20Framing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie en framing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Doelarchitectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doelarchitectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Deploymentmodellen%20%28On-prem%2C%20Hybride%2C%20SaaS%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploymentmodellen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing Service Architectuur
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing Service Architectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fobis-platform-licensing-service-architectuur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fobis Platform – Licensing Service Architectuur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fobis Platform – Licensing Service Architectuur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-doel-van-dit-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Doel van dit document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-uitgangspunten-en-doelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Uitgangspunten en doelen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-conceptueel-licentiemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Conceptueel licentiemodel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-architectuur-van-de-licensing-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Architectuur van de licensing-service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Architectuur van de licensing-service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-licentiecontrole-patronen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Licentiecontrole-patronen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-saas-vs-on-premhybride-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. SaaS vs. on-prem/hybride scenario’s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. SaaS vs. on-prem/hybride scenario’s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-saas-rbk-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 SaaS / RBK-cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-on-premise-bij-klant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 On-premise bij klant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-klant-cloud-hybride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Klant-cloud / hybride
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-relatie-tussen-licensering-authenticatie-en-autorisatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Relatie tussen licensering, authenticatie en autorisatie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-beheer-en-inzicht-voor-rbk-en-klanten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Beheer en inzicht (voor RBK en klanten)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-security-en-misbruikpreventie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Security en misbruikpreventie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-implementatierichtlijnen-hoog-niveau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Implementatierichtlijnen (hoog niveau)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Logging%20en%20Observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging en Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Authenticatie%20en%20Autorisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticatie en Autorisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Praatplaat%20en%20Stakeholdercommunicatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praatplaat en Stakeholdercommunicatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive-app
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive-app
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apps/Drive-app/Drive%20App%20-%20Visie%2C%20Scope%20en%20Backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie, scope en backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apps/Drive-app/Drive%20App%20-%20Integratie%20met%20ERP%20en%20Planningssystemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integratie met ERP en planningssystemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organisatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Organisatie%20en%20Ontwikkelteam%28s%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie en Ontwikkelteam(s)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Serviceteam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serviceteam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Projectmanagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projectmanagement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Marketing%20organisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing organisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Licensering%20en%20Verdienmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensering en Verdienmodel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectuur
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectuur
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Now
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Now
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overzicht FOBIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-Libraries-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-Pipelines-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/Fobis-Utilities-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/Fobis-Verkoop-App-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkoop-app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-Customs-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Marketing/FOBIS%20Next%20-%20Merkverhaal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FOBIS Next – merkverhaal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fobis-platform-licensing-service-architectuur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fobis Platform – Licensing Service Architectuur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fobis Platform – Licensing Service Architectuur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-doel-van-dit-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Doel van dit document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-uitgangspunten-en-doelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Uitgangspunten en doelen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-conceptueel-licentiemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Conceptueel licentiemodel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-architectuur-van-de-licensing-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Architectuur van de licensing-service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Architectuur van de licensing-service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-licentiecontrole-patronen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Licentiecontrole-patronen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-saas-vs-on-premhybride-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. SaaS vs. on-prem/hybride scenario’s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. SaaS vs. on-prem/hybride scenario’s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-saas-rbk-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 SaaS / RBK-cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-on-premise-bij-klant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 On-premise bij klant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-klant-cloud-hybride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Klant-cloud / hybride
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-relatie-tussen-licensering-authenticatie-en-autorisatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Relatie tussen licensering, authenticatie en autorisatie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-beheer-en-inzicht-voor-rbk-en-klanten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Beheer en inzicht (voor RBK en klanten)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-security-en-misbruikpreventie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Security en misbruikpreventie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-implementatierichtlijnen-hoog-niveau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Implementatierichtlijnen (hoog niveau)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Licensing Service Architectuur</h1>
+
+<h2 id="fobis-platform-licensing-service-architectuur">Fobis Platform – Licensing Service Architectuur</h2>
+<h3 id="1-doel-van-dit-document">1. Doel van dit document</h3>
+<p>Dit document beschrijft de <strong>conceptuele en logische opzet</strong> van een centrale licensing-service voor Fobis Platform:</p>
+<ul>
+<li>Hoe licenties voor klanten/tenants worden gemodelleerd.  </li>
+<li>Hoe apps (zoals de Drive App) en Fobis Core licenties controleren.  </li>
+<li>Hoe dit werkt in zowel <strong>SaaS</strong> als <strong>on-prem/hybride</strong> scenario’s.  </li>
+</ul>
+<hr />
+<h3 id="2-uitgangspunten-en-doelen">2. Uitgangspunten en doelen</h3>
+<ul>
+<li>Licensering is nu sterk verweven met Fobis zelf en deels technisch geïmplementeerd.  </li>
+<li>We willen naar een <strong>centrale, platformbrede licenseringsoplossing</strong> die:  </li>
+<li>Eenduidig is voor alle applicaties.  </li>
+<li>Als <strong>losse service</strong> beschikbaar is binnen het platform.  </li>
+<li>Zowel online (SaaS) als offline/gesloten omgevingen ondersteunt.  </li>
+</ul>
+<p>Doelen:</p>
+<ul>
+<li><strong>Transparantie</strong>: duidelijk wat een klant/tenant heeft afgenomen.  </li>
+<li><strong>Beheersbaarheid</strong>: centraal beheer en inzicht voor RBK (en deels voor klanten).  </li>
+<li><strong>Flexibiliteit</strong>: licenties per module, feature, gebruiker, omgeving kunnen defineren.  </li>
+<li><strong>Veiligheid</strong>: misbruik detecteren en beperken, zonder klanten onnodig te blokkeren.  </li>
+</ul>
+<hr />
+<h3 id="3-conceptueel-licentiemodel">3. Conceptueel licentiemodel</h3>
+<p>Belangrijke begrippen:</p>
+<ul>
+<li><strong>Tenant</strong>:  </li>
+<li>Eén klant/omgeving (bijv. “Vleesverwerker A”).  </li>
+<li><strong>Product</strong>:  </li>
+<li>Een groter geheel aan functionaliteit (bijv. “Fobis Core”, “Fobis Drive”).  </li>
+<li><strong>Module / Feature</strong>:  </li>
+<li>Specifiek onderdeel binnen een product (bijv. “Drive App – Afmelden leveringen”, “Reporting-module”).  </li>
+<li><strong>Licentie</strong>:  </li>
+<li>Toekenning dat een tenant een bepaald product/module mag gebruiken, onder voorwaarden (looptijd, aantal gebruikers, etc.).  </li>
+</ul>
+<p>Een licentie bevat o.a.:</p>
+<ul>
+<li><code>tenant_id</code>  </li>
+<li><code>product_id</code> / <code>module_id</code>  </li>
+<li>Licentietype (per user, per site, per volume)  </li>
+<li>Geldigheidsperiode (start- en einddatum)  </li>
+<li>Eventuele limieten (max aantal gebruikers, sites, devices)  </li>
+</ul>
+<hr />
+<h3 id="4-architectuur-van-de-licensing-service">4. Architectuur van de licensing-service</h3>
+<p>De licensing-service is een <strong>centrale backend-service</strong> met:</p>
+<ul>
+<li><strong>API’s</strong> voor:  </li>
+<li>RBK-beheer (aanmaken/wijzigen licenties).  </li>
+<li>Applicaties (controleren of een licentie geldig is).  </li>
+<li><strong>Database</strong>:  </li>
+<li>Opslag van tenants, producten, modules en licentie-objecten.  </li>
+<li><strong>Integratie</strong> met:  </li>
+<li>Authenticatie (koppeling tussen user/tenant en licentie).  </li>
+<li>Logging/observability (licentiechecks en schendingen worden gelogd).  </li>
+</ul>
+<h4 id="41-licentiecontrole-patronen">4.1 Licentiecontrole-patronen</h4>
+<p>Apps gebruiken de licensing-service volgens twee hoofdpatronen:</p>
+<ol>
+<li><strong>Online check (SaaS / verbonden scenario)</strong>:  </li>
+<li>
+<p>App of backend-service roept een <strong><code>/check-license</code></strong>-endpoint aan:  </p>
+<ul>
+<li>Input: <code>tenant_id</code>, <code>product/module_id</code>, eventueel context (user, omgeving).  </li>
+<li>Output: <code>allowed: true/false</code>, plus metadata (reden, resterende tijd, limieten).  </li>
+</ul>
+</li>
+<li>
+<p><strong>Token-gebaseerd (offline/vaker gebruik)</strong>:  </p>
+</li>
+<li>De licensing-service geeft een <strong>licentietoken</strong> (bijv. JWT) uit:  <ul>
+<li>Bevat claims over de licenties van een tenant.  </li>
+<li>Wordt lokaal gecached, met een beperkte geldigheidsduur.  </li>
+</ul>
+</li>
+<li>Apps kunnen dit token lokaal valideren zonder elke keer de service aan te roepen.  </li>
+</ol>
+<hr />
+<h3 id="5-saas-vs-on-premhybride-scenarios">5. SaaS vs. on-prem/hybride scenario’s</h3>
+<h4 id="51-saas-rbk-cloud">5.1 SaaS / RBK-cloud</h4>
+<ul>
+<li>De licensing-service draait in de RBK-cloud.  </li>
+<li>Alle tenants (klanten) staan in één centrale database (multi-tenant).  </li>
+<li>Apps en platformservices doen <strong>online licentiechecks</strong> of gebruiken licentietokens.  </li>
+<li>RBK heeft centraal inzicht in:  </li>
+<li>Welke klanten welke modules gebruiken.  </li>
+<li>Gebruikspatronen (via logging).  </li>
+</ul>
+<h4 id="52-on-premise-bij-klant">5.2 On-premise bij klant</h4>
+<p>Mogelijke varianten:</p>
+<ol>
+<li><strong>Connected on-prem</strong> (met internet / connectie naar RBK):  </li>
+<li>On-prem systemen (Fobis Core, platformservices) kunnen periodiek de licensing-service in RBK-cloud benaderen.  </li>
+<li>Licentietokens worden lokaal gecached.  </li>
+<li>
+<p>Bij uitval van connectie is er een <strong>grace period</strong> waarin bestaande licenties blijven werken.  </p>
+</li>
+<li>
+<p><strong>Largely offline on-prem</strong> (beperkte of geen connectiviteit):  </p>
+</li>
+<li>Periodieke <strong>licentie-export</strong> vanuit RBK (bijv. licentie-bestand of token) die in de klantomgeving wordt geïmporteerd.  </li>
+<li>Lokale component (lightweight licensing-checker) voert checks uit op basis van het geïmporteerde bestand/token.  </li>
+<li>Expiratie en grace periods zijn belangrijk om te voorkomen dat licenties eeuwig doorlopen zonder controle.  </li>
+</ol>
+<h4 id="53-klant-cloud-hybride">5.3 Klant-cloud / hybride</h4>
+<ul>
+<li>Licensing-service kan draaien:  </li>
+<li>In RBK-cloud (centrale service).  </li>
+<li>Of in een klant-cloudomgeving, gesynchroniseerd met RBK.  </li>
+<li>Scenario wordt gekozen op basis van commerciële en technische afspraken.  </li>
+</ul>
+<hr />
+<h3 id="6-relatie-tussen-licensering-authenticatie-en-autorisatie">6. Relatie tussen licensering, authenticatie en autorisatie</h3>
+<p>Licensering, authenticatie en autorisatie zijn <strong>gescheiden concepten</strong>, maar werken samen:</p>
+<ul>
+<li><strong>Authenticatie</strong>:  </li>
+<li>Bepaalt “wie ben je?” (user/identity).  </li>
+<li><strong>Autorisatie</strong>:  </li>
+<li>Bepaalt “wat mag je doen?” op basis van rollen/claims.  </li>
+<li><strong>Licensering</strong>:  </li>
+<li>Bepaalt “welke functionaliteit is commercieel vrijgegeven voor deze tenant?”.  </li>
+</ul>
+<p>In de praktijk:</p>
+<ul>
+<li>Een API-call wordt toegestaan als:  </li>
+<li>De gebruiker correct is geauthenticeerd en geautoriseerd.  </li>
+<li>De tenant een geldige licentie heeft voor de gevraagde functionaliteit.  </li>
+</ul>
+<p>Bijvoorbeeld in de Drive App:</p>
+<ul>
+<li>Chauffeur met rol <code>chauffeur</code> wil leveringen afmelden.  </li>
+<li>De API controleert:  </li>
+<li>Auth: token is geldig, <code>role=chauffeur</code>, <code>tenant_id=KlantA</code>.  </li>
+<li>Licentie: <code>KlantA</code> heeft een geldige <code>DriveApp</code>-licentie met module <code>Afmelden leveringen</code>.  </li>
+<li>Als beide waar zijn: verzoek wordt uitgevoerd.  </li>
+</ul>
+<hr />
+<h3 id="7-beheer-en-inzicht-voor-rbk-en-klanten">7. Beheer en inzicht (voor RBK en klanten)</h3>
+<p>De licensing-service biedt:</p>
+<ul>
+<li>Voor RBK:  </li>
+<li>Overzicht van alle tenants en licenties.  </li>
+<li>Inzicht in welke modules waar worden gebruikt.  </li>
+<li>
+<p>Mogelijkheid om licenties te activeren/deactiveren/aanpassen.  </p>
+</li>
+<li>
+<p>Voor klanten (afhankelijk van afspraken):  </p>
+</li>
+<li>Portaal waarin ze hun eigen licenties kunnen inzien.  </li>
+<li>Eventueel self-service uitbreiding/aanpassing (toekomst).  </li>
+</ul>
+<p>Licentie-activiteiten worden gelogd:</p>
+<ul>
+<li>Aanmaak en wijzigingen van licenties.  </li>
+<li>Licentiechecks (succes/failure).  </li>
+<li>Mogelijke misbruikpogingen (bijv. overschrijding limieten).  </li>
+</ul>
+<hr />
+<h3 id="8-security-en-misbruikpreventie">8. Security en misbruikpreventie</h3>
+<p>Belangrijke aandachtspunten:</p>
+<ul>
+<li>Licentietokens zijn <strong>ondertekend</strong> (bijv. met JWT + private key).  </li>
+<li>Lokale caches hebben een <strong>beperkte geldigheid</strong> en worden regelmatig vernieuwd.  </li>
+<li>Grace periods zijn begrensd:  </li>
+<li>Voorkomt dat een “vergeten” omgeving onbeperkt doorloopt.  </li>
+<li>Monitoring op:  </li>
+<li>Onverwacht hoge load vanuit een tenant.  </li>
+<li>Verdachte patronen in licentiechecks.  </li>
+</ul>
+<hr />
+<h3 id="9-implementatierichtlijnen-hoog-niveau">9. Implementatierichtlijnen (hoog niveau)</h3>
+<ul>
+<li>Bepaal een <strong>eerste licentiemodel</strong>:  </li>
+<li>Start eenvoudig (bijv. per tenant per module), breid later uit met user/site-limieten.  </li>
+<li>Definieer een <strong>API-contract</strong> voor licensing:  </li>
+<li><code>GET /api/licenses/{tenantId}</code> – overzicht licenties.  </li>
+<li><code>POST /api/licenses/check</code> – licentiecheck voor een module/feature.  </li>
+<li><code>POST /api/licenses/token</code> – uitgifte van een licentietoken.  </li>
+<li>Integreer licensing vanuit nieuwe apps als de Drive App:  </li>
+<li>Bij start-up: licentietoken ophalen/cachen.  </li>
+<li>Bij cruciale acties: licentievalideren (online of via token).  </li>
+</ul>
+<hr />
+<h3 id="10-samenvatting">10. Samenvatting</h3>
+<ul>
+<li>De licensing-service maakt licensering tot een <strong>centrale, herbruikbare capability</strong> van Fobis Platform.  </li>
+<li>Het model ondersteunt:  </li>
+<li>Meerdere producten en modules per tenant.  </li>
+<li>Zowel SaaS als on-prem/hybride scenario’s (met offline opties).  </li>
+<li>Licensering werkt samen met auth en autorisatie, maar blijft een <strong>eigen verantwoordelijkheid</strong>:  </li>
+<li>Auth: wie ben je?  </li>
+<li>Autorisatie: wat mag je?  </li>
+<li>Licensering: waarvoor is betaald/vrijgegeven?  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

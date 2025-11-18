@@ -1,0 +1,1949 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Verkenning, architectuur en marketing rond FOBIS Next en het FOBIS Platform.">
+      
+      
+        <meta name="author" content="FOBIS">
+      
+      
+      
+        <link rel="prev" href="../Drive%20App%20-%20Visie%2C%20Scope%20en%20Backlog/">
+      
+      
+        <link rel="next" href="../../../Organisatie/Fobis%20Platform%20-%20Organisatie%20en%20Ontwikkelteam%28s%29/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Integratie met ERP en planningssystemen - FOBIS Platform Verkenning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Exo 2";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/fobis-next.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#drive-app-integratie-met-erp-en-planningssystemen-via-fobis-platform" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="FOBIS Platform Verkenning" class="md-header__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FOBIS Platform Verkenning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integratie met ERP en planningssystemen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="FOBIS Platform Verkenning" class="md-nav__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FOBIS Platform Verkenning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkenning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verkenning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Inspiratiedocument/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspiratie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Visie%20en%20Framing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie en framing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Doelarchitectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doelarchitectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Deploymentmodellen%20%28On-prem%2C%20Hybride%2C%20SaaS%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploymentmodellen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Licensing%20Service%20Architectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing Service Architectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Logging%20en%20Observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging en Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Authenticatie%20en%20Autorisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticatie en Autorisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Platform/Fobis%20Platform%20-%20Praatplaat%20en%20Stakeholdercommunicatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praatplaat en Stakeholdercommunicatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive-app
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive-app
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Drive%20App%20-%20Visie%2C%20Scope%20en%20Backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie, scope en backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integratie met ERP en planningssystemen
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integratie met ERP en planningssystemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drive-app-integratie-met-erp-en-planningssystemen-via-fobis-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drive App – Integratie met ERP- en planningssystemen via Fobis Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drive App – Integratie met ERP- en planningssystemen via Fobis Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-doel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Doel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hoog-over-architectuur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hoog-over architectuur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-canoniek-model-in-fobis-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Canoniek model in Fobis Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integratiepatronen-tussen-platform-en-bronsystemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integratiepatronen tussen platform en bronsystemen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Integratiepatronen tussen platform en bronsystemen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pull-platform-haalt-ritten-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Pull (platform haalt ritten op)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-push-bronsysteem-stuurt-ritten-naar-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Push (bronsysteem stuurt ritten naar platform)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-apis-tussen-drive-app-en-fobis-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. API’s tussen Drive App en Fobis Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-adapters-per-plannings-erp-systeem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Adapters per plannings-/ERP-systeem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-tenantconfiguratie-kiezen-van-het-bronsysteem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Tenantconfiguratie – kiezen van het bronsysteem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-event-en-dataflow-bij-afmelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Event- en dataflow bij afmelden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-architectonische-voordelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Architectonische voordelen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organisatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Organisatie/Fobis%20Platform%20-%20Organisatie%20en%20Ontwikkelteam%28s%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie en Ontwikkelteam(s)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Organisatie/Fobis%20Platform%20-%20Serviceteam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serviceteam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Organisatie/Fobis%20Platform%20-%20Projectmanagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projectmanagement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Organisatie/Fobis%20Platform%20-%20Marketing%20organisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing organisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Organisatie/Fobis%20Platform%20-%20Licensering%20en%20Verdienmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensering en Verdienmodel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectuur
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectuur
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Now
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Now
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Architectuur/Now/FOBIS-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overzicht FOBIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Architectuur/Now/FOBIS-Libraries-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Architectuur/Now/FOBIS-Pipelines-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Architectuur/Now/Fobis-Utilities-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Architectuur/Now/Fobis-Verkoop-App-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkoop-app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Architectuur/Now/FOBIS-Customs-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marketing/FOBIS%20Next%20-%20Merkverhaal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FOBIS Next – merkverhaal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drive-app-integratie-met-erp-en-planningssystemen-via-fobis-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drive App – Integratie met ERP- en planningssystemen via Fobis Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drive App – Integratie met ERP- en planningssystemen via Fobis Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-doel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Doel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hoog-over-architectuur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hoog-over architectuur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-canoniek-model-in-fobis-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Canoniek model in Fobis Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integratiepatronen-tussen-platform-en-bronsystemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integratiepatronen tussen platform en bronsystemen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Integratiepatronen tussen platform en bronsystemen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pull-platform-haalt-ritten-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Pull (platform haalt ritten op)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-push-bronsysteem-stuurt-ritten-naar-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Push (bronsysteem stuurt ritten naar platform)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-apis-tussen-drive-app-en-fobis-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. API’s tussen Drive App en Fobis Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-adapters-per-plannings-erp-systeem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Adapters per plannings-/ERP-systeem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-tenantconfiguratie-kiezen-van-het-bronsysteem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Tenantconfiguratie – kiezen van het bronsysteem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-event-en-dataflow-bij-afmelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Event- en dataflow bij afmelden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-architectonische-voordelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Architectonische voordelen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Integratie met ERP en planningssystemen</h1>
+
+<h2 id="drive-app-integratie-met-erp-en-planningssystemen-via-fobis-platform">Drive App – Integratie met ERP- en planningssystemen via Fobis Platform</h2>
+<h3 id="1-doel">1. Doel</h3>
+<p>Dit document beschrijft hoe we de Drive App <strong>architectonisch loskoppelen</strong> van Fobis Core en van specifieke ERP-/planningssystemen (zoals Exact Globe en Odoo), door:</p>
+<ul>
+<li>Een <strong>canoniek model</strong> voor ritten/stops in Fobis Platform te gebruiken.  </li>
+<li>Integratie met bronsystemen te regelen via <strong>adapters</strong> in de platformlaag.  </li>
+<li>De Drive App uitsluitend tegen <strong>platform-API’s</strong> te laten praten.  </li>
+</ul>
+<p>Doel: vandaag starten met Fobis als bron, maar het ontwerp zo maken dat <strong>ieder plannings-/ERP-systeem kan aanhaken</strong> zonder de app zelf te wijzigen.</p>
+<hr />
+<h3 id="2-hoog-over-architectuur">2. Hoog-over architectuur</h3>
+<p>Logische keten:</p>
+<ol>
+<li><strong>Planning/ERP-systeem</strong>  </li>
+<li>Fobis Core, Exact Globe, Odoo, of een ander systeem dat ritten en stops plant.  </li>
+<li><strong>Fobis Platform – Integratielaag</strong>  </li>
+<li>Canoniek rit-/stopmodel.  </li>
+<li>Adapters per bronsysteem (Fobis-adapter, Exact-adapter, Odoo-adapter, …).  </li>
+<li>API’s en events richting apps.  </li>
+<li><strong>Drive App</strong>  </li>
+<li>Praat alleen met platform-API’s (<code>/api/drive/...</code>).  </li>
+<li>Kent geen details van Fobis, Exact, Odoo.  </li>
+</ol>
+<p>Belangrijk principe: <strong>de Drive App weet niets van het onderliggende planningssysteem</strong> – alle mapping gebeurt in de platformlaag.</p>
+<hr />
+<h3 id="3-canoniek-model-in-fobis-platform">3. Canoniek model in Fobis Platform</h3>
+<p>We definiëren in Fobis Platform een <strong>eigen, systeem-onafhankelijk datamodel</strong> voor ritten en stops, bijvoorbeeld:</p>
+<ul>
+<li><code>Trip</code> (rit)  </li>
+<li><code>tripId</code> (platform-id)  </li>
+<li><code>externalId</code> (id in bronsysteem)  </li>
+<li><code>tenantId</code>  </li>
+<li><code>driverId</code>  </li>
+<li><code>plannedDate</code>  </li>
+<li><code>status</code> (planned, in_progress, completed, canceled)  </li>
+<li>…  </li>
+<li><code>Stop</code>  </li>
+<li><code>stopId</code> (platform-id)  </li>
+<li><code>externalId</code> (id in bronsysteem)  </li>
+<li><code>tripId</code>  </li>
+<li><code>sequenceNumber</code>  </li>
+<li><code>customerName</code>  </li>
+<li><code>address</code>  </li>
+<li><code>timeWindow</code>  </li>
+<li><code>status</code> (not_started, en_route, delivered, not_delivered)  </li>
+<li><code>reasonCode</code> (bij niet-afgeleverd)  </li>
+<li>…  </li>
+</ul>
+<p>Alle platform-API’s gebruiken dit <strong>canonieke model</strong>.<br />
+Adapters zijn verantwoordelijk voor de vertaling tussen:</p>
+<ul>
+<li>Canoniek model ↔ Fobis Core.  </li>
+<li>Canoniek model ↔ Exact Globe (bijv. verkooporders/ritplanning).  </li>
+<li>Canoniek model ↔ Odoo (delivery orders, routes, enz.).  </li>
+</ul>
+<hr />
+<h3 id="4-integratiepatronen-tussen-platform-en-bronsystemen">4. Integratiepatronen tussen platform en bronsystemen</h3>
+<p>We onderscheiden twee hoofdpatronen:</p>
+<h4 id="41-pull-platform-haalt-ritten-op">4.1 Pull (platform haalt ritten op)</h4>
+<ul>
+<li>Integratieservice in Fobis Platform:  </li>
+<li>Vraagt periodiek of op event-basis de geplande ritten op bij het bronsysteem:  <ul>
+<li>Via API’s (REST/GraphQL) indien beschikbaar.  </li>
+<li>Via database of bestand (alleen als noodzakelijk, bij legacy).  </li>
+</ul>
+</li>
+<li>Mapt de data naar het canonieke <code>Trip</code>/<code>Stop</code>-model.  </li>
+<li>Slaat ritten op in de platform-database.  </li>
+<li>Voordeel:  </li>
+<li>Platform is leidend voor de app.  </li>
+<li>App hoeft niet te wachten op live-connectie met het bronsysteem.  </li>
+</ul>
+<h4 id="42-push-bronsysteem-stuurt-ritten-naar-platform">4.2 Push (bronsysteem stuurt ritten naar platform)</h4>
+<ul>
+<li>Bronsysteem publiceert ritten/stops:  </li>
+<li>Via webhooks, berichtenqueue (bijv. RabbitMQ, Azure Service Bus) of andere integratiemechanismen.  </li>
+<li>Naar een endpoint of queue in Fobis Platform.  </li>
+<li>Data wordt gemapt naar canoniek model en opgeslagen.  </li>
+</ul>
+<p>In beide gevallen zijn <strong>adapters</strong> verantwoordelijk voor de vertaling van en naar het canonieke model.</p>
+<hr />
+<h3 id="5-apis-tussen-drive-app-en-fobis-platform">5. API’s tussen Drive App en Fobis Platform</h3>
+<p>De Drive App gebruikt een set <strong>stabiele platform-API’s</strong>, bijvoorbeeld:</p>
+<ul>
+<li><code>GET /api/drive/trips?date=...</code><br />
+  Haalt ritten voor ingelogde chauffeur op.</li>
+<li><code>GET /api/drive/trips/{tripId}/stops</code><br />
+  Haalt stops voor een rit op.</li>
+<li><code>POST /api/drive/stops/{stopId}/complete</code><br />
+  Meldt stop als afgeleverd.</li>
+<li><code>POST /api/drive/stops/{stopId}/fail</code><br />
+  Meldt stop als niet-afgeleverd (incl. reden, optionele foto/handtekening).</li>
+</ul>
+<p>Deze API’s werken <strong>uitsluitend met het canonieke model</strong>.<br />
+De platformservices zorgen ervoor dat:</p>
+<ul>
+<li>Statusupdates teruggeschreven worden naar het juiste bronsysteem via de juiste adapter.  </li>
+<li>Eventueel meerdere bronsystemen per tenant ondersteund kunnen worden (bij complexe landschappen).  </li>
+</ul>
+<hr />
+<h3 id="6-adapters-per-plannings-erp-systeem">6. Adapters per plannings-/ERP-systeem</h3>
+<p>Voor elk ondersteund bronsysteem komt er een <strong>aparte adapter</strong>, bijvoorbeeld:</p>
+<ul>
+<li><code>FobisAdapter</code>  </li>
+<li>Kent de Fobis Core-datamodellen en API’s.  </li>
+<li>Mapt Fobis-ritten ↔ canoniek <code>Trip</code>/<code>Stop</code>.  </li>
+<li>
+<p>Schrijft afmeldingen/retours terug in Fobis.  </p>
+</li>
+<li>
+<p><code>ExactGlobeAdapter</code>  </p>
+</li>
+<li>Integreert met de wijze waarop Exact ritten/leveringen vertegenwoordigt (bijv. verkooporders + routes).  </li>
+<li>
+<p>Mapt Exact-data ↔ canoniek model.  </p>
+</li>
+<li>
+<p><code>OdooAdapter</code>  </p>
+</li>
+<li>Integreert met Odoo’s delivery/route-modules.  </li>
+<li>Mapt Odoo-data ↔ canoniek model.  </li>
+</ul>
+<p>Adapters volgen hetzelfde <strong>interfacecontract</strong>, bijvoorbeeld:</p>
+<ul>
+<li><code>GetTripsForDriver(tenantId, driverId, date)</code>  </li>
+<li><code>UpdateStopStatus(tenantId, tripExternalId, stopExternalId, newStatus, reasonCode, extraData)</code>  </li>
+</ul>
+<p>Daardoor kan per tenant <strong>geconfigureerd</strong> worden welk adaptertype actief is, zonder de Drive App te wijzigen.</p>
+<hr />
+<h3 id="7-tenantconfiguratie-kiezen-van-het-bronsysteem">7. Tenantconfiguratie – kiezen van het bronsysteem</h3>
+<p>Per tenant (klant) wordt in Fobis Platform vastgelegd:</p>
+<ul>
+<li>Welk <strong>bronsysteemtype</strong> in gebruik is:  </li>
+<li><code>FOBIS_CORE</code>, <code>EXACT_GLOBE</code>, <code>ODOO</code>, <code>CUSTOM</code>, …  </li>
+<li>De benodigde connectiedetails:  </li>
+<li>API-URL’s, credentials, queue-namen, etc.  </li>
+</ul>
+<p>De integratieservice kiest op basis hiervan automatisch de juiste adapter voor:</p>
+<ul>
+<li>Ritten ophalen.  </li>
+<li>Afmeldingen terugschrijven.  </li>
+</ul>
+<p>Zo kunnen:</p>
+<ul>
+<li>Sommige klanten puur op Fobis draaien.  </li>
+<li>Andere klanten primair op Exact of Odoo plannen, met Fobis als “datahub”.  </li>
+<li>Later ook andere systemen worden aangesloten zonder impact op de app.  </li>
+</ul>
+<hr />
+<h3 id="8-event-en-dataflow-bij-afmelden">8. Event- en dataflow bij afmelden</h3>
+<p>Voorbeeldflow bij “stop afmelden” in Drive App:</p>
+<ol>
+<li>Chauffeur meldt in Drive App stop <code>S123</code> als afgeleverd.  </li>
+<li>App stuurt <code>POST /api/drive/stops/{stopId}/complete</code> naar Fobis Platform.  </li>
+<li>Platform:  </li>
+<li>Valideert auth/licensing.  </li>
+<li>Zoekt bij <code>stopId</code> de bijbehorende <code>tenantId</code>, <code>tripId</code>, <code>externalIds</code>.  </li>
+<li>Schrijft statuswijziging in het canonieke model (interne database).  </li>
+<li>Roept de juiste adapter aan voor die tenant.  </li>
+<li>Adapter:  </li>
+<li>Vertaalt de statuswijziging naar een call/event richting het bronsysteem (Fobis/Exact/Odoo).  </li>
+<li>Handelt bronspecifieke logica af (bijv. updates van orderstatus, retourcodes).  </li>
+<li>Platform logt de actie (inclusief correlation-id) en geeft de app een bevestiging.  </li>
+</ol>
+<p>De app verandert <strong>niet</strong> als het bronsysteem verandert; alleen de adapter en tenantconfiguratie veranderen.</p>
+<hr />
+<h3 id="9-architectonische-voordelen">9. Architectonische voordelen</h3>
+<ul>
+<li><strong>Losse koppeling</strong>:  </li>
+<li>Drive App kent alleen Fobis Platform-API’s en het canonieke model.  </li>
+<li>Bronsystemen zitten achter adapters.  </li>
+<li><strong>Uitbreidbaarheid</strong>:  </li>
+<li>Nieuwe bronsystemen kunnen worden toegevoegd door nieuwe adapters te schrijven.  </li>
+<li><strong>Herbruikbaarheid</strong>:  </li>
+<li>Andere apps kunnen hetzelfde canonieke model en dezelfde integratielaag hergebruiken.  </li>
+<li><strong>Multi-systeem scenario’s</strong>:  </li>
+<li>Mogelijk om, per tenant of zelfs per proces, verschillende bronsystemen te gebruiken.  </li>
+</ul>
+<hr />
+<h3 id="10-samenvatting">10. Samenvatting</h3>
+<ul>
+<li>Architectonisch bereiken we de gewenste onafhankelijkheid door:  </li>
+<li>Een <strong>canoniek rit-/stopmodel</strong> in Fobis Platform.  </li>
+<li><strong>Adapters</strong> per plannings-/ERP-systeem.  </li>
+<li>Een <strong>Drive App</strong> die uitsluitend met platform-API’s praat.  </li>
+<li>In de praktijk starten we met Fobis Core als bronsysteem, maar het ontwerp maakt het mogelijk om later <strong>Exact, Odoo of andere systemen</strong> aan te haken zonder de Drive App zelf aan te passen.  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

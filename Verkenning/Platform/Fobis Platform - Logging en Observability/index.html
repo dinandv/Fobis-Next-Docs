@@ -1,0 +1,2298 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Verkenning, architectuur en marketing rond FOBIS Next en het FOBIS Platform.">
+      
+      
+        <meta name="author" content="FOBIS">
+      
+      
+      
+        <link rel="prev" href="../Fobis%20Platform%20-%20Licensing%20Service%20Architectuur/">
+      
+      
+        <link rel="next" href="../Fobis%20Platform%20-%20Authenticatie%20en%20Autorisatie/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Logging en Observability - FOBIS Platform Verkenning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Exo 2";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/fobis-next.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fobis-platform-logging-en-observability" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FOBIS Platform Verkenning" class="md-header__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FOBIS Platform Verkenning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Logging en Observability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FOBIS Platform Verkenning" class="md-nav__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FOBIS Platform Verkenning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkenning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verkenning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Inspiratiedocument/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspiratie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Visie%20en%20Framing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie en framing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Doelarchitectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doelarchitectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Deploymentmodellen%20%28On-prem%2C%20Hybride%2C%20SaaS%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploymentmodellen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Licensing%20Service%20Architectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing Service Architectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging en Observability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging en Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fobis-platform-logging-en-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fobis Platform – Logging en Observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fobis Platform – Logging en Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-doel-van-dit-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Doel van dit document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-uitgangssituatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Uitgangssituatie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-doelarchitectuur-voor-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Doelarchitectuur voor observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-evaluatie-van-logging-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Evaluatie van logging libraries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Evaluatie van logging libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-evaluatiecriteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Evaluatiecriteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-vergelijking-van-opties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Vergelijking van opties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Vergelijking van opties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serilog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serilog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoftextensionslogging-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft.Extensions.Logging (MEL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NLog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-aanbeveling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Aanbeveling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-serilog-als-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Serilog als basis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-loggingstrategie-per-deploymentmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Loggingstrategie per deploymentmodel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Loggingstrategie per deploymentmodel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-on-premise-bij-klant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 On-premise bij klant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-klant-cloud-hybride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Klant-cloud / hybride
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-rbk-saas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 RBK SaaS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-metrics-en-health-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Metrics en health monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-proactieve-support-en-ai-ondersteunde-analyses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Proactieve support en AI-ondersteunde analyses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-configuratie-en-beheer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configuratie en beheer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-integratie-met-security-en-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Integratie met security en privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-implementatierichtlijnen-hoog-niveau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Implementatierichtlijnen (hoog niveau)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Authenticatie%20en%20Autorisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticatie en Autorisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Praatplaat%20en%20Stakeholdercommunicatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praatplaat en Stakeholdercommunicatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive-app
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive-app
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apps/Drive-app/Drive%20App%20-%20Visie%2C%20Scope%20en%20Backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie, scope en backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apps/Drive-app/Drive%20App%20-%20Integratie%20met%20ERP%20en%20Planningssystemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integratie met ERP en planningssystemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organisatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Organisatie%20en%20Ontwikkelteam%28s%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie en Ontwikkelteam(s)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Serviceteam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serviceteam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Projectmanagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projectmanagement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Marketing%20organisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing organisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organisatie/Fobis%20Platform%20-%20Licensering%20en%20Verdienmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensering en Verdienmodel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectuur
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectuur
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Now
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Now
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overzicht FOBIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-Libraries-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-Pipelines-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/Fobis-Utilities-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/Fobis-Verkoop-App-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkoop-app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur/Now/FOBIS-Customs-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Marketing/FOBIS%20Next%20-%20Merkverhaal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FOBIS Next – merkverhaal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fobis-platform-logging-en-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fobis Platform – Logging en Observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fobis Platform – Logging en Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-doel-van-dit-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Doel van dit document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-uitgangssituatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Uitgangssituatie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-doelarchitectuur-voor-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Doelarchitectuur voor observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-evaluatie-van-logging-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Evaluatie van logging libraries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Evaluatie van logging libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-evaluatiecriteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Evaluatiecriteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-vergelijking-van-opties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Vergelijking van opties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Vergelijking van opties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serilog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serilog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoftextensionslogging-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft.Extensions.Logging (MEL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NLog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-aanbeveling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Aanbeveling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-serilog-als-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Serilog als basis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-loggingstrategie-per-deploymentmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Loggingstrategie per deploymentmodel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Loggingstrategie per deploymentmodel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-on-premise-bij-klant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 On-premise bij klant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-klant-cloud-hybride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Klant-cloud / hybride
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-rbk-saas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 RBK SaaS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-metrics-en-health-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Metrics en health monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-proactieve-support-en-ai-ondersteunde-analyses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Proactieve support en AI-ondersteunde analyses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-configuratie-en-beheer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configuratie en beheer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-integratie-met-security-en-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Integratie met security en privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-implementatierichtlijnen-hoog-niveau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Implementatierichtlijnen (hoog niveau)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Logging en Observability</h1>
+
+<h2 id="fobis-platform-logging-en-observability">Fobis Platform – Logging en Observability</h2>
+<h3 id="1-doel-van-dit-document">1. Doel van dit document</h3>
+<p>Dit document beschrijft een <strong>logging- en observability-strategie</strong> voor Fobis Platform:</p>
+<ul>
+<li>Hoe we <strong>Serilog</strong> en andere tools inzetten voor logs, metrics en tracing.  </li>
+<li>Hoe we zowel <strong>on-prem</strong> als <strong>SaaS/hybride</strong> scenario's ondersteunen.  </li>
+<li>Hoe we toewerken naar <strong>proactieve support</strong> en <strong>(AI-)analyses</strong> op klantomgevingen.  </li>
+</ul>
+<hr />
+<h3 id="2-uitgangssituatie">2. Uitgangssituatie</h3>
+<ul>
+<li>Vandaag:  </li>
+<li>Fobis gebruikt <strong>Serilog</strong> voor logging.  </li>
+<li>Logs worden geschreven naar <strong>bestand</strong> en/of <strong>SQL-database</strong>.  </li>
+<li>Beperkingen:  </li>
+<li>Moeilijk om centraal over alle klantomgevingen heen te kijken.  </li>
+<li>Beperkte mogelijkheden voor proactieve signalering.  </li>
+<li>Analyse van incidenten is vaak <strong>reactief</strong> en per klantomgeving apart.  </li>
+</ul>
+<hr />
+<h3 id="3-doelarchitectuur-voor-observability">3. Doelarchitectuur voor observability</h3>
+<p>We onderscheiden drie lagen:</p>
+<ol>
+<li><strong>Application Telemetry</strong>  </li>
+<li>Serilog-logs vanuit Fobis Core, platformservices en apps.  </li>
+<li>Basis-metrics (requests/sec, errors, latency).  </li>
+<li>
+<p>Eventueel distributed tracing (correlation-id).  </p>
+</li>
+<li>
+<p><strong>Collectie en aggregatie</strong>  </p>
+</li>
+<li>Lokale sinks (bestand/SQL) voor on-prem omgevingen.  </li>
+<li>Centrale sinks bij cloud/SaaS (bijv. Seq, Elasticsearch, Application Insights, Prometheus).  </li>
+<li>
+<p>Optioneel: forwarding van on-prem logs naar RBK-cloud.  </p>
+</li>
+<li>
+<p><strong>Analyse en visualisatie</strong>  </p>
+</li>
+<li>Dashboards voor RBK-support en klanten.  </li>
+<li>Alerting op basis van drempelwaardes.  </li>
+<li>Toekomst: AI/ML voor anomaly detection en root cause help.  </li>
+</ol>
+<hr />
+<h3 id="4-evaluatie-van-logging-libraries">4. Evaluatie van logging libraries</h3>
+<h4 id="41-evaluatiecriteria">4.1 Evaluatiecriteria</h4>
+<p>Voor de keuze van de logging library zijn de volgende criteria van belang:</p>
+<ul>
+<li><strong>Gestructureerde logging (JSON-first)</strong>: Ondersteuning voor gestructureerde logging met rijke properties, essentieel voor analyse en filtering.  </li>
+<li><strong>Azure Application Insights integratie</strong>: Naadloze integratie met Azure Application Insights als primaire cloud-sink.  </li>
+<li><strong>Performance</strong>: Lage overhead bij hoge logvolumes, asynchrone verwerking.  </li>
+<li><strong>Multi-tenant support</strong>: Eenvoudig toevoegen van <code>tenant_id</code> en andere contextuele velden.  </li>
+<li><strong>Correlation-id ondersteuning</strong>: Native ondersteuning voor correlation-id propagatie over servicegrenzen.  </li>
+<li><strong>Flexibiliteit in sinks</strong>: Breed scala aan sinks voor verschillende deploymentmodellen (file, SQL, cloud, on-prem).  </li>
+<li><strong>Maturiteit en community</strong>: Volwassen library met actieve community en goede documentatie.  </li>
+<li><strong>Migratiepad</strong>: Continuïteit met bestaande Serilog-implementatie in Fobis.  </li>
+</ul>
+<h4 id="42-vergelijking-van-opties">4.2 Vergelijking van opties</h4>
+<h5 id="serilog">Serilog</h5>
+<p><strong>Sterke punten:</strong><br />
+- ✅ <strong>Uitstekende gestructureerde logging</strong>: JSON-first design met native property capture.<br />
+- ✅ <strong>Rijke Azure Application Insights integratie</strong>: <code>Serilog.Sinks.ApplicationInsights</code> biedt directe integratie met Application Insights, waarbij gestructureerde properties automatisch als custom dimensions worden opgeslagen.<br />
+- ✅ <strong>Hoge performance</strong>: Asynchrone sinks, efficiënte property capture, lage overhead.<br />
+- ✅ <strong>Flexibele context</strong>: <code>LogContext.PushProperty()</code> maakt het eenvoudig om <code>tenant_id</code>, <code>correlation_id</code> en andere context toe te voegen.<br />
+- ✅ <strong>Uitgebreide sink-ecosysteem</strong>: 100+ sinks beschikbaar (file, SQL, Seq, Elasticsearch, Application Insights, CloudWatch, etc.).<br />
+- ✅ <strong>Mature en stabiel</strong>: Actief onderhouden, veel gebruikt in .NET-ecosysteem.<br />
+- ✅ <strong>Bestaande implementatie</strong>: Fobis gebruikt al Serilog, minimale migratiekosten.  </p>
+<p><strong>Zwakke punten:</strong><br />
+- ⚠️ Geen ingebouwde metrics/tracing (alleen logging), maar dit is geen vereiste voor fase 1.<br />
+- ⚠️ Voor distributed tracing is aanvullende tooling nodig (bijv. OpenTelemetry), maar dit is voor later.  </p>
+<p><strong>Azure Application Insights integratie:</strong><br />
+- Directe integratie via <code>Serilog.Sinks.ApplicationInsights</code>.<br />
+- Gestructureerde properties worden automatisch als custom dimensions opgeslagen.<br />
+- Ondersteuning voor zowel telemetry channels als directe HTTP-export.<br />
+- Goede performance met batching en asynchrone verwerking.  </p>
+<h5 id="microsoftextensionslogging-mel">Microsoft.Extensions.Logging (MEL)</h5>
+<p><strong>Sterke punten:</strong><br />
+- ✅ Standaard in .NET, geen extra dependency.<br />
+- ✅ Goede integratie met ASP.NET Core middleware.<br />
+- ✅ Provider-model biedt flexibiliteit.  </p>
+<p><strong>Zwakke punten:</strong><br />
+- ❌ <strong>Beperkte gestructureerde logging</strong>: MEL is primair ontworpen voor string-based logging. Gestructureerde logging vereist meer boilerplate code en is minder elegant.<br />
+- ❌ <strong>Minder performant</strong>: Bij hoge volumes presteert MEL minder goed dan Serilog.<br />
+- ❌ <strong>Beperkte Azure integratie</strong>: Application Insights integratie vereist extra configuratie en is minder direct dan Serilog.<br />
+- ❌ <strong>Minder rijke property capture</strong>: Contextuele informatie toevoegen is minder intuïtief.<br />
+- ❌ <strong>Migratiekosten</strong>: Vereist herschrijven van bestaande Serilog-code.  </p>
+<p><strong>Azure Application Insights integratie:</strong><br />
+- Vereist <code>Microsoft.ApplicationInsights.AspNetCore</code> package.<br />
+- Minder directe mapping van gestructureerde properties naar custom dimensions.<br />
+- Meer configuratie nodig voor optimale integratie.  </p>
+<h5 id="nlog">NLog</h5>
+<p><strong>Sterke punten:</strong><br />
+- ✅ Mature en stabiele library.<br />
+- ✅ Goede performance.<br />
+- ✅ Veel targets (sinks) beschikbaar.  </p>
+<p><strong>Zwakke punten:</strong><br />
+- ⚠️ <strong>Minder focus op gestructureerde logging</strong>: NLog ondersteunt gestructureerde logging, maar het is niet de primaire focus zoals bij Serilog.<br />
+- ⚠️ <strong>Complexere configuratie</strong>: XML-configuratie kan complexer zijn dan Serilog's fluent API.<br />
+- ⚠️ <strong>Minder moderne API</strong>: API is minder elegant voor gestructureerde logging.<br />
+- ⚠️ <strong>Migratiekosten</strong>: Vereist herschrijven van bestaande Serilog-code.  </p>
+<p><strong>Azure Application Insights integratie:</strong><br />
+- Beschikbaar via <code>NLog.Targets.ApplicationInsights</code>.<br />
+- Functioneel, maar minder direct dan Serilog's integratie.  </p>
+<h5 id="opentelemetry">OpenTelemetry</h5>
+<p><strong>Sterke punten:</strong><br />
+- ✅ <strong>Unified observability</strong>: Logs, metrics en traces in één framework.<br />
+- ✅ <strong>Industry standard</strong>: Wordt de standaard voor observability.<br />
+- ✅ <strong>Toekomstbestendig</strong>: Goede integratie met moderne tools.  </p>
+<p><strong>Zwakke punten:</strong><br />
+- ❌ <strong>Te vroeg voor fase 1</strong>: OpenTelemetry in .NET is relatief nieuw en minder mature dan Serilog.<br />
+- ❌ <strong>Complexiteit</strong>: Meer complex om op te zetten en te configureren.<br />
+- ❌ <strong>Overkill voor alleen logging</strong>: Als je alleen logging nodig hebt (fase 1), is OpenTelemetry mogelijk overkill.<br />
+- ❌ <strong>Vaak nog Serilog nodig</strong>: Veel OpenTelemetry-implementaties gebruiken Serilog als logging provider.  </p>
+<p><strong>Azure Application Insights integratie:</strong><br />
+- Goede integratie via OpenTelemetry Azure Monitor exporter.<br />
+- Maar vereist meer setup en configuratie.  </p>
+<h4 id="43-aanbeveling">4.3 Aanbeveling</h4>
+<p><strong>Serilog blijft de beste keuze voor Fobis Platform.</strong></p>
+<p><strong>Rationale:</strong></p>
+<ol>
+<li>
+<p><strong>Voldoet aan alle vereisten</strong>: Serilog voldoet uitstekend aan alle criteria, met name gestructureerde logging, Azure Application Insights integratie en multi-tenant support.  </p>
+</li>
+<li>
+<p><strong>Bestaande investering</strong>: Fobis gebruikt al Serilog. Continuïteit vermindert risico's en migratiekosten.  </p>
+</li>
+<li>
+<p><strong>Superieure Azure integratie</strong>: <code>Serilog.Sinks.ApplicationInsights</code> biedt de meest directe en performante integratie met Application Insights, waarbij gestructureerde properties automatisch als custom dimensions worden opgeslagen.  </p>
+</li>
+<li>
+<p><strong>Toekomstige uitbreidbaarheid</strong>: Serilog kan later worden gecombineerd met OpenTelemetry voor metrics en tracing, zonder Serilog te vervangen. Dit biedt een duidelijk migratiepad.  </p>
+</li>
+<li>
+<p><strong>Performance en maturiteit</strong>: Serilog is bewezen performant en mature, met een actieve community en uitgebreide documentatie.  </p>
+</li>
+</ol>
+<p><strong>Implementatie-overwegingen:</strong></p>
+<ul>
+<li>Gebruik <code>Serilog.Sinks.ApplicationInsights</code> voor Azure-cloud deployments.  </li>
+<li>Behoud bestaande sinks (file, SQL) voor on-prem deployments.  </li>
+<li>Implementeer een standaard logging-package met middleware voor correlation-id en tenant context.  </li>
+<li>Overweeg later OpenTelemetry toe te voegen voor metrics en tracing, naast (niet in plaats van) Serilog.  </li>
+</ul>
+<hr />
+<h3 id="5-serilog-als-basis">5. Serilog als basis</h3>
+<p>Serilog blijft de <strong>standaard logging library</strong> in .NET-componenten van Fobis Platform.</p>
+<p>Afspraken:</p>
+<ul>
+<li><strong>Gestructureerde logging</strong>:  </li>
+<li>Logrecords in JSON-formaat met vaste velden:  <ul>
+<li><code>timestamp</code>, <code>level</code>, <code>messageTemplate</code>, <code>tenant_id</code>, <code>user_id</code> (indien bekend), <code>correlation_id</code>, <code>source</code>, <code>event_type</code>.  </li>
+</ul>
+</li>
+<li><strong>Correlation-id</strong>:  </li>
+<li>Elke request krijgt een unieke <code>correlation_id</code>.  </li>
+<li>Deze id wordt doorgegeven over de keten (app → API → services → Fobis Core).  </li>
+<li>Maakt end-to-end tracering van een probleem mogelijk.  </li>
+<li><strong>Tenantcontext</strong>:  </li>
+<li>Waar mogelijk wordt een <code>tenant_id</code> meegegeven in logrecords.  </li>
+<li>Essentieel voor multi-tenant/SaaS scenario's én voor gescheiden analyse per klant.  </li>
+</ul>
+<hr />
+<h3 id="6-loggingstrategie-per-deploymentmodel">6. Loggingstrategie per deploymentmodel</h3>
+<h4 id="61-on-premise-bij-klant">6.1 On-premise bij klant</h4>
+<ul>
+<li><strong>Minimaal</strong>:  </li>
+<li>Logging naar lokaal bestand en/of SQL (zoals nu).  </li>
+<li>Zorgvuldig configuratiebeheer:  <ul>
+<li>Rotatie/retentie van logbestanden.  </li>
+<li>Max schijfruimte voor logs.  </li>
+</ul>
+</li>
+<li><strong>Optioneel</strong>:  </li>
+<li>Lokale log-viewer (bijv. Seq on-prem, Kibana, of een eigen viewer).  </li>
+<li>Exportmogelijkheden (bijv. periodieke upload naar RBK voor analyse).  </li>
+</ul>
+<h4 id="62-klant-cloud-hybride">6.2 Klant-cloud / hybride</h4>
+<ul>
+<li>Logging van platformservices en Fobis Core:  </li>
+<li>Naar cloud-native oplossingen (bijv. Azure Application Insights, Log Analytics, AWS CloudWatch).  </li>
+<li>Eventueel naar een dedicated loggingstack (ELK/EFK, Seq, Grafana Loki).  </li>
+<li>Koppeling met RBK:  </li>
+<li>RBK kan (met toestemming) meekijken in log- en metriekdata.  </li>
+<li>Shared dashboards voor klant + RBK-support.  </li>
+</ul>
+<h4 id="63-rbk-saas">6.3 RBK SaaS</h4>
+<ul>
+<li>Centralisatie:  </li>
+<li>Alle SaaS-omgevingen loggen naar een centrale logging/metrics oplossing.  </li>
+<li>Multi-tenant filtering via <code>tenant_id</code>.  </li>
+<li>Proactieve monitoring:  </li>
+<li>Alerting per tenant (bijv. verhoogde error rates).  </li>
+<li>Baseline-analyses over alle tenants heen.  </li>
+</ul>
+<hr />
+<h3 id="7-metrics-en-health-monitoring">7. Metrics en health monitoring</h3>
+<p>Naast logging definiëren we een set <strong>basis-metrics</strong>:</p>
+<ul>
+<li><strong>Technisch</strong>:  </li>
+<li>Request volume per service.  </li>
+<li>Error rates (4xx/5xx).  </li>
+<li>Latency (gemiddelde, percentielen).  </li>
+<li>
+<p>Resourcegebruik (CPU, memory, disk, queue-lengtes).  </p>
+</li>
+<li>
+<p><strong>Functioneel</strong> (domein-specifiek):  </p>
+</li>
+<li>Aantal ritten/leveringen verwerkt (Drive App).  </li>
+<li>Aantal mislukte leveringen, timeouts naar Fobis Core.  </li>
+<li>Aantal licentie-checks en failures.  </li>
+</ul>
+<p>Alle services implementeren een <strong>health endpoint</strong> (bijv. <code>/health</code>):</p>
+<ul>
+<li>Duidelijke status: <code>Healthy</code>, <code>Degraded</code>, <code>Unhealthy</code>.  </li>
+<li>Gebruikt door:  </li>
+<li>Load balancers/orchestrators (bijv. Kubernetes).  </li>
+<li>Monitoring- en alertingtooling.  </li>
+</ul>
+<hr />
+<h3 id="8-proactieve-support-en-ai-ondersteunde-analyses">8. Proactieve support en AI-ondersteunde analyses</h3>
+<p>Door logs en metrics centraal en gestructureerd te verzamelen, ontstaat de basis voor:</p>
+<ul>
+<li><strong>Proactieve incidentdetectie</strong>:  </li>
+<li>Alerts op verhoogde foutpercentages bij een specifieke tenant.  </li>
+<li>
+<p>Signalering van performanceproblemen voordat de klant belt.  </p>
+</li>
+<li>
+<p><strong>AI-ondersteunde analyse</strong>:  </p>
+</li>
+<li>Gebruik van log- en metriekdata als input voor AI/ML-modellen:  <ul>
+<li>Anomaly detection (bijv. ongebruikelijk patroon van fouten).  </li>
+<li>Suggesties voor mogelijke oorzaken bij incidenten.  </li>
+</ul>
+</li>
+<li>Mogelijk in volgende stappen:  <ul>
+<li>Conversational debugging ("wat is er gebeurd bij klant X gisteren?").  </li>
+</ul>
+</li>
+</ul>
+<p>Voorwaarde: <strong>consistent, rijk gelabelde data</strong> (tenant, correlation-id, eventtype).</p>
+<hr />
+<h3 id="9-configuratie-en-beheer">9. Configuratie en beheer</h3>
+<p>Belangrijk is een <strong>goed configureerbare oplossing</strong>:</p>
+<ul>
+<li>Loggingniveau per component instelbaar (bijv. <code>Information</code>, <code>Warning</code>, <code>Debug</code>).  </li>
+<li>Schakelen tussen verschillende sinks zonder code-aanpassing:  </li>
+<li>Bijv. via config: file + SQL, of file + cloud sink.  </li>
+<li>Per tenant of omgeving andere instellingen:  </li>
+<li>Meer detail in test/acceptatie.  </li>
+<li>Strakkere retentie in productie.  </li>
+</ul>
+<p>RBK beheert:</p>
+<ul>
+<li>Standaardconfiguraties per deploymentmodel.  </li>
+<li>Templates voor Serilog-config (in code en in config-bestanden).  </li>
+</ul>
+<hr />
+<h3 id="10-integratie-met-security-en-privacy">10. Integratie met security en privacy</h3>
+<p>Logging moet voldoen aan <strong>privacy- en security-eisen (AVG)</strong>:</p>
+<ul>
+<li>Minimaliseer het loggen van <strong>persoonsgegevens</strong>:  </li>
+<li>Geen gevoelige data in logmessages (bijv. geen volledige namen/adressen als het niet nodig is).  </li>
+<li>Pseudonimiseren waar mogelijk.  </li>
+<li>Toegang tot centrale logs:  </li>
+<li>Rolgebaseerde toegang (RBK-support, klantbeheerder).  </li>
+<li>Audittrail van wie wat heeft ingezien.  </li>
+</ul>
+<hr />
+<h3 id="11-implementatierichtlijnen-hoog-niveau">11. Implementatierichtlijnen (hoog niveau)</h3>
+<ul>
+<li>Gebruik Serilog <strong>enkel nog gestructureerd</strong> (geen losse stringlogs zonder properties).  </li>
+<li>Introduceer een standaard <strong>logging-package</strong> voor platformservices met:  </li>
+<li>Middleware voor correlation-id.  </li>
+<li>Tenant- en usercontext in logs.  </li>
+<li>Eenduidige configuratie van sinks.  </li>
+<li>Kies 1–2 <strong>voorkeursstacks</strong> voor centrale logging:  </li>
+<li>Bijv. Serilog → Seq / Elastic / Application Insights.  </li>
+<li>Beschrijf per deploymentmodel de default-keuze.  </li>
+</ul>
+<hr />
+<h3 id="12-samenvatting">12. Samenvatting</h3>
+<ul>
+<li>Fobis Platform bouwt verder op Serilog, maar plaatst dit in een bredere <strong>observability-architectuur</strong>.  </li>
+<li>Logs, metrics en (eventueel) traces worden:  </li>
+<li>Gestructureerd en rijk gelabeld (tenant, correlation-id, eventtype).  </li>
+<li>Per deploymentmodel op passende wijze opgeslagen en geaggregeerd.  </li>
+<li>Dit maakt:  </li>
+<li><strong>Proactieve service en support</strong> mogelijk.  </li>
+<li>Toekomstige <strong>AI-ondersteunde analyses</strong> haalbaar.  </li>
+<li>Beheer van SaaS én on-prem omgevingen <strong>beter voorspelbaar en schaalbaar</strong>.  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

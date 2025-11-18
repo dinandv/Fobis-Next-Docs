@@ -1,0 +1,2026 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Verkenning, architectuur en marketing rond FOBIS Next en het FOBIS Platform.">
+      
+      
+        <meta name="author" content="FOBIS">
+      
+      
+      
+        <link rel="prev" href="../../Architectuur/Now/FOBIS-Customs-README/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>FOBIS Next – merkverhaal - FOBIS Platform Verkenning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Exo 2";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/fobis-next.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fobis-next-merkverhaal" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FOBIS Platform Verkenning" class="md-header__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FOBIS Platform Verkenning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FOBIS Next – merkverhaal
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FOBIS Platform Verkenning" class="md-nav__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FOBIS Platform Verkenning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkenning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verkenning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Inspiratiedocument/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspiratie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Visie%20en%20Framing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie en framing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Doelarchitectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doelarchitectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Deploymentmodellen%20%28On-prem%2C%20Hybride%2C%20SaaS%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploymentmodellen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Licensing%20Service%20Architectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing Service Architectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Logging%20en%20Observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging en Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Authenticatie%20en%20Autorisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticatie en Autorisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Platform/Fobis%20Platform%20-%20Praatplaat%20en%20Stakeholdercommunicatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praatplaat en Stakeholdercommunicatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive-app
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive-app
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Apps/Drive-app/Drive%20App%20-%20Visie%2C%20Scope%20en%20Backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie, scope en backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Apps/Drive-app/Drive%20App%20-%20Integratie%20met%20ERP%20en%20Planningssystemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integratie met ERP en planningssystemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organisatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Organisatie/Fobis%20Platform%20-%20Organisatie%20en%20Ontwikkelteam%28s%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organisatie en Ontwikkelteam(s)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Organisatie/Fobis%20Platform%20-%20Serviceteam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serviceteam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Organisatie/Fobis%20Platform%20-%20Projectmanagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projectmanagement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Organisatie/Fobis%20Platform%20-%20Marketing%20organisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing organisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verkenning/Organisatie/Fobis%20Platform%20-%20Licensering%20en%20Verdienmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensering en Verdienmodel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectuur
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectuur
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Now
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Now
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architectuur/Now/FOBIS-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overzicht FOBIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architectuur/Now/FOBIS-Libraries-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architectuur/Now/FOBIS-Pipelines-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architectuur/Now/Fobis-Utilities-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architectuur/Now/Fobis-Verkoop-App-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkoop-app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architectuur/Now/FOBIS-Customs-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FOBIS Next – merkverhaal
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FOBIS Next – merkverhaal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-kernboodschap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Kernboodschap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elevator-pitch-kort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Elevator pitch (kort)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-uitgebreide-beschrijving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Uitgebreide beschrijving
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-positionering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Positionering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-belangrijkste-merkwaarden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Belangrijkste merkwaarden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-verhaal-achter-de-naam-en-het-logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verhaal achter de naam en het logo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tone-of-voice-voor-teksten-en-presentaties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Tone of voice (voor teksten en presentaties)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-voorbeeldteksten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Voorbeeldteksten
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Voorbeeldteksten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#websitelanding-page-korte-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Website/landing page – korte intro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pitchdeck-openingsslide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pitchdeck – openingsslide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme-eerste-alinea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        README – eerste alinea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-stijlgids-visuele-richtlijnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Stijlgids (visuele richtlijnen)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Stijlgids (visuele richtlijnen)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-kleurenpalet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Kleurenpalet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-vormen-en-beeldtaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Vormen en beeldtaal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-lettertypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Lettertypes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-typografierichtlijnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Typografie‑richtlijnen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-voorbeelden-van-toepassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Voorbeelden van toepassing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-kernboodschap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Kernboodschap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elevator-pitch-kort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Elevator pitch (kort)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-uitgebreide-beschrijving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Uitgebreide beschrijving
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-positionering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Positionering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-belangrijkste-merkwaarden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Belangrijkste merkwaarden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-verhaal-achter-de-naam-en-het-logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verhaal achter de naam en het logo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tone-of-voice-voor-teksten-en-presentaties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Tone of voice (voor teksten en presentaties)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-voorbeeldteksten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Voorbeeldteksten
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Voorbeeldteksten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#websitelanding-page-korte-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Website/landing page – korte intro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pitchdeck-openingsslide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pitchdeck – openingsslide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme-eerste-alinea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        README – eerste alinea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-stijlgids-visuele-richtlijnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Stijlgids (visuele richtlijnen)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Stijlgids (visuele richtlijnen)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-kleurenpalet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Kleurenpalet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-vormen-en-beeldtaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Vormen en beeldtaal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-lettertypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Lettertypes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-typografierichtlijnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Typografie‑richtlijnen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-voorbeelden-van-toepassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Voorbeelden van toepassing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fobis-next-merkverhaal">FOBIS Next – Merkverhaal</h1>
+<h2 id="1-kernboodschap">1. Kernboodschap</h2>
+<p><strong>FOBIS Next is het moderne, gedistribueerde serviceframework voor de volgende generatie van FOBIS-oplossingen.</strong><br />
+Het helpt organisaties om hun bestaande FOBIS-landschap gecontroleerd te moderniseren, stap voor stap te migreren en nieuwe digitale diensten sneller te ontwikkelen.</p>
+<h2 id="2-elevator-pitch-kort">2. Elevator pitch (kort)</h2>
+<p><strong>FOBIS Next brengt de kracht en betrouwbaarheid van FOBIS naar een toekomstbestendige, gedistribueerde architectuur.</strong><br />
+Met een modulair serviceframework, duidelijke integratiepunten en een sterke focus op beheerbaarheid maakt FOBIS Next het mogelijk om nieuwe functionaliteit veilig naast bestaande systemen te introduceren en geleidelijk door te groeien naar een moderne cloud- en servicegerichte omgeving.</p>
+<h2 id="3-uitgebreide-beschrijving">3. Uitgebreide beschrijving</h2>
+<p>FOBIS is al jarenlang een vertrouwd fundament onder kritische processen. Tegelijkertijd veranderen de eisen aan IT-landschappen:<br />
+microservices, cloud-native, schaalbaarheid, veiligheid, continue levering en snelle innovatie zijn de nieuwe standaard.  </p>
+<p><strong>FOBIS Next is ontwikkeld als antwoord op die beweging.</strong><br />
+Het is geen compleet nieuw systeem naast FOBIS, maar een <strong>distributed service framework</strong> dat:</p>
+<ul>
+<li><strong>FOBIS centraal houdt</strong> als bron van waarheid, waar dat nodig is.  </li>
+<li><strong>Nieuwe diensten en componenten</strong> op een moderne manier ontsluit en met FOBIS verbindt.  </li>
+<li><strong>Gefaseerde migratie</strong> mogelijk maakt, zodat organisaties niet in één keer hoeven te “big-bangen”.  </li>
+</ul>
+<p>Zo ontstaat een <strong>brug tussen het bewezen bestaande en het innovatieve nieuwe</strong> – met behoud van stabiliteit én ruimte voor vernieuwing.</p>
+<h2 id="4-positionering">4. Positionering</h2>
+<ul>
+<li><strong>Voor wie</strong>  </li>
+<li>Organisaties die al op FOBIS draaien en hun landschap willen moderniseren.  </li>
+<li>
+<p>IT- en architectuurteams die naar een gedistribueerde, servicegerichte architectuur willen groeien zonder risico’s op continuïteit.  </p>
+</li>
+<li>
+<p><strong>Probleem</strong>  </p>
+</li>
+<li>Monolithische applicaties zijn lastig te veranderen, moeilijk schaalbaar en vormen een rem op innovatie.  </li>
+<li>
+<p>Volledige vervanging (replatforming) is risicovol, duur en organisatorisch complex.  </p>
+</li>
+<li>
+<p><strong>Oplossing (FOBIS Next)</strong>  </p>
+</li>
+<li>Biedt een consistent serviceframework rondom FOBIS voor nieuwe en bestaande functionaliteit.  </li>
+<li>Maakt het mogelijk om stap voor stap services los te trekken, te moderniseren en gecontroleerd uit te rollen.  </li>
+<li>
+<p>Ondersteunt distributed deployment, integratie en monitoring.  </p>
+</li>
+<li>
+<p><strong>Belofte</strong>  </p>
+</li>
+<li><strong>“Moderniseer in je eigen tempo, zonder de zekerheid van FOBIS op te geven.”</strong>  </li>
+</ul>
+<h2 id="5-belangrijkste-merkwaarden">5. Belangrijkste merkwaarden</h2>
+<ul>
+<li><strong>Betrouwbaar</strong> – sluit aan op het bewezen FOBIS-fundament; stabiliteit en voorspelbaarheid staan voorop.  </li>
+<li><strong>Toekomstgericht</strong> – ontworpen voor de volgende generatie architecturen en technologieën.  </li>
+<li><strong>Controleerbaar</strong> – gefaseerde migratie, duidelijke governance en inzicht in services en afhankelijkheden.  </li>
+<li><strong>Samenwerkend</strong> – legt verbinding tussen teams, systemen en domeinen; stimuleert gedeelde verantwoordelijkheid.  </li>
+<li><strong>Pragmatisch</strong> – geen “big bang”-visie, maar praktische stappen die aansluiten op de werkelijkheid van vandaag.  </li>
+</ul>
+<h2 id="6-verhaal-achter-de-naam-en-het-logo">6. Verhaal achter de naam en het logo</h2>
+<ul>
+<li><strong>Naam: “FOBIS Next”</strong>  </li>
+<li>“FOBIS” borgt de herkenbaarheid en continuïteit met het bestaande platform.  </li>
+<li>
+<p>“Next” vertelt het verhaal van vooruitgang, evolutie en de volgende stap: de volgende generatie van FOBIS-oplossingen.  </p>
+</li>
+<li>
+<p><strong>Logo</strong>  </p>
+</li>
+<li>De <strong>driehoek-vorm naar rechts</strong> verwijst naar “play”, vooruitgang en beweging richting de toekomst.  </li>
+<li>De <strong>meerdere kleurvlakken</strong> staan voor verschillende services/domeinen die samen één geheel vormen binnen FOBIS Next.  </li>
+<li>De <strong>heldere, moderne kleuren</strong> geven een eigentijdse, technologische uitstraling zonder afstandelijk te worden.  </li>
+</ul>
+<p>Visueel ziet dat er bijvoorbeeld zo uit:</p>
+<p><img alt="FOBIS Next logo" src="../FOBIS%20Next.png" /></p>
+<p><img alt="FOBIS Next banner" src="../FOBIS%20Next%20slide.png" /></p>
+<h2 id="7-tone-of-voice-voor-teksten-en-presentaties">7. Tone of voice (voor teksten en presentaties)</h2>
+<ul>
+<li><strong>Helder en concreet</strong> – weinig jargon, maar wel technische diepgang waar nodig.  </li>
+<li><strong>Vertrouwend en zeker</strong> – benadruk stabiliteit en ervaring, geen hype.  </li>
+<li><strong>Constructief en uitnodigend</strong> – nodig mensen uit om mee te denken en stap voor stap mee te bewegen.  </li>
+<li><strong>Oplossingsgericht</strong> – leg de nadruk op wat FOBIS Next mogelijk maakt, niet alleen op wat er mis is met het oude.  </li>
+</ul>
+<h2 id="8-voorbeeldteksten">8. Voorbeeldteksten</h2>
+<h3 id="websitelanding-page-korte-intro">Website/landing page – korte intro</h3>
+<blockquote>
+<p>FOBIS Next is het distributed service framework voor de volgende generatie van FOBIS.<br />
+Het helpt organisaties om hun bestaande FOBIS-landschap veilig te moderniseren, nieuwe digitale diensten sneller te ontwikkelen en gecontroleerd te groeien naar een moderne, servicegerichte architectuur.</p>
+</blockquote>
+<h3 id="pitchdeck-openingsslide">Pitchdeck – openingsslide</h3>
+<p><strong>FOBIS Next</strong><br />
+Distributed Service Framework<br />
+for the Next Generation of FOBIS</p>
+<h3 id="readme-eerste-alinea">README – eerste alinea</h3>
+<p>FOBIS Next is een distributed service framework rondom het bestaande FOBIS-platform.<br />
+Het framework maakt het mogelijk om nieuwe services en componenten op een moderne, schaalbare manier te ontwikkelen en te integreren, terwijl de betrouwbaarheid van FOBIS behouden blijft. Dit repository bevat de technische basis, richtlijnen en referentie-implementaties voor FOBIS Next.</p>
+<h2 id="9-stijlgids-visuele-richtlijnen">9. Stijlgids (visuele richtlijnen)</h2>
+<p>Deze stijlgids is bedoeld als praktisch referentiepunt voor iedereen die met FOBIS Next‑materiaal werkt (slides, documenten, web, demo’s).</p>
+<h3 id="91-kleurenpalet">9.1 Kleurenpalet</h3>
+<p><em>NB: Hex‑waarden zijn indicatief; stem ze in de praktijk af op het bronmateriaal.</em></p>
+<ul>
+<li><strong>Primair FOBIS Next‑blauw</strong> (voor logo, koppen, knoppen)  </li>
+<li>Voorstel: <code>#0077C8</code>  </li>
+<li><strong>Accent geel</strong> (vlak in logo, highlights)  </li>
+<li>Voorstel: <code>#FFC928</code>  </li>
+<li><strong>Accent groen</strong> (vlak in logo, “Next”/toekomst)  </li>
+<li>Voorstel: <code>#B3CF2F</code>  </li>
+<li><strong>Accent oranje</strong> (vlak in logo, energie/actie)  </li>
+<li>Voorstel: <code>#F46A1A</code>  </li>
+<li><strong>Achtergrond lichtblauw (hero/banner)</strong>  </li>
+<li>Voorstel: van <code>#E7F4FF</code> (licht) naar <code>#2E84D6</code> (donker) in een zachte diagonale gradient.  </li>
+<li><strong>Neutrale kleuren (tekst)</strong>  </li>
+<li>Primair tekst: bijna zwart <code>#222222</code>  </li>
+<li>Secundair tekst: grijs <code>#666666</code>  </li>
+<li>Lichte lijnen/ondertitels: grijs <code>#AAAAAA</code>  </li>
+</ul>
+<p><strong>Gebruik:</strong></p>
+<ul>
+<li>Gebruik het <strong>FOBIS Next‑blauw</strong> voor logo, belangrijke knoppen en H1/H2‑koppen.  </li>
+<li>Gebruik <strong>geel/groen/oranje</strong> spaarzaam als accent in grafieken, iconen of callouts.  </li>
+<li>Gebruik de <strong>lichtblauwe gradient</strong> alleen voor hero‑vlakken of grote bannerachtergronden, niet als standaard paginabackground in apps.  </li>
+</ul>
+<h3 id="92-vormen-en-beeldtaal">9.2 Vormen en beeldtaal</h3>
+<ul>
+<li><strong>Driehoek / play‑vorm</strong>  </li>
+<li>De basisvorm is een <strong>rechthoekige driehoek naar rechts</strong>: staat voor “play”, vooruit en next.  </li>
+<li>In het hoofdlogo worden <strong>drie kleinere driehoeken</strong> (blauw, geel, oranje) gecombineerd tot één grote pijl, aangevuld met een groene driehoek als “vooruitwijzer”.  </li>
+<li><strong>Stijl van vlakken</strong>  </li>
+<li>Hoofdvormen zijn <strong>vlak en geometrisch</strong>, zonder rondingen of gradient in de vlakken zelf.  </li>
+<li>Randen zijn bij voorkeur <strong>zonder outlines</strong>; de kleurvlakken raken elkaar direct.  </li>
+<li><strong>Gebruik in visualisaties</strong>  </li>
+<li>Gebruik driehoeken en pijlvormen om <strong>flows, services en datastromen</strong> te visualiseren.  </li>
+<li>Combineer de logo‑vorm subtiel in architectuurdiagrammen als visuele hint (“dit is een FOBIS Next service”).  </li>
+<li>Vermijd drukke iconensets; houd illustraties eenvoudig en schematisch.  </li>
+</ul>
+<h3 id="93-lettertypes">9.3 Lettertypes</h3>
+<p>In de huidige slide‑set worden <strong>Exo 2 ExtraBold</strong> en <strong>Exo 2 Light</strong> gebruikt; die vormen samen de basis van de FOBIS Next‑typografie.</p>
+<ul>
+<li><strong>Primair lettertype (koppen)</strong>  </li>
+<li><strong>Exo 2 ExtraBold</strong> voor H1/H2‑koppen en belangrijke titels (bijv. “FOBIS Next”).  </li>
+<li>
+<p>In HTML/CSS kun je bijvoorbeeld een stack gebruiken als:  </p>
+<ul>
+<li><code>font-family: "Exo 2", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;</code>  </li>
+</ul>
+</li>
+<li>
+<p><strong>Lichaamstekst</strong>  </p>
+</li>
+<li><strong>Exo 2 Light</strong> of <strong>Exo 2 Regular</strong> voor lopende tekst.  </li>
+<li>
+<p>Regelafstand minimaal 1.3–1.5 voor goede leesbaarheid in lange teksten.  </p>
+</li>
+<li>
+<p><strong>Monospace (code en technische fragments)</strong>  </p>
+</li>
+<li>Voor codeblokken en configuratievoorbeelden: <strong>Consolas</strong>, <strong>Fira Code</strong> of <strong>Source Code Pro</strong>.  </li>
+</ul>
+<h3 id="94-typografierichtlijnen">9.4 Typografie‑richtlijnen</h3>
+<ul>
+<li><strong>Titels</strong>: kort en beschrijvend; maximaal één kernboodschap per slide/pagina.  </li>
+<li><strong>Gebruik van kapitalen</strong>:  </li>
+<li>“FOBIS” altijd in kapitalen.  </li>
+<li>“Next” met hoofdletter N: “FOBIS Next”.  </li>
+<li><strong>Opmaak</strong>:  </li>
+<li>Gebruik <strong>vet</strong> voor sleutelwoorden en belangrijke claims.  </li>
+<li>Gebruik <em>cursief</em> voor nuances, voorbeeldzinnen en meta‑commentaar (zoals hier).  </li>
+<li>Vermijd onderstrepen behalve voor links.  </li>
+</ul>
+<h3 id="95-voorbeelden-van-toepassing">9.5 Voorbeelden van toepassing</h3>
+<ul>
+<li><strong>Slides</strong>  </li>
+<li>Titel in FOBIS Next‑blauw op lichte (liefst witte of heel lichtblauwe) achtergrond.  </li>
+<li>Logo op één vaste plek (bijv. linksboven), niet herhaald in elk element.  </li>
+<li>
+<p>Maximaal drie kleuren in één slide: blauw + één accent + neutraal grijs.  </p>
+</li>
+<li>
+<p><strong>Website / documentatie (MkDocs)</strong>  </p>
+</li>
+<li>Gebruik de primaire kleur voor navigatie en headings.  </li>
+<li>Gebruik accentkleuren in callouts (bijv. “Belangrijk”, “Let op”, “Voorbeeld”).  </li>
+<li>Houd pagina’s rustig: veel witruimte, korte paragrafen, duidelijke kopjes.  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

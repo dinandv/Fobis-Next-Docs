@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap");
+
+:root {
+  /* Material for MkDocs - custom primary & accent */
+  --md-primary-fg-color: #0077C8;   /* FOBIS Next-blauw */
+  --md-primary-fg-color--light: #2E84D6;
+  --md-primary-fg-color--dark: #005b96;
+
+  --md-accent-fg-color: #FFC928;    /* Accent geel */
+  --md-accent-fg-color--transparent: rgba(255, 201, 40, 0.15);
+
+  /* Extra FOBIS Next-variabelen */
+  --fobis-blue: #0077C8;
+  --fobis-yellow: #FFC928;
+  --fobis-green: #B3CF2F;
+  --fobis-orange: #F46A1A;
+
+  --fobis-text: #222222;
+  --fobis-text-muted: #666666;
+  --fobis-border-light: #AAAAAA;
+}
+
+/* Basis-typografie */
+body {
+  font-family: "Exo 2", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--fobis-text);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: "Exo 2", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.md-typeset {
+  line-height: 1.5;
+}
+
+/* Links subtiel in FOBIS-blauw */
+.md-typeset a {
+  color: var(--fobis-blue);
+}
+
+.md-typeset a:hover {
+  color: #005b96;
+}
+
+/* Hero-sectie in FOBIS Next-stijl */
+.fobis-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+  margin: 0 0 2.5rem 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #E7F4FF, #2E84D6);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.fobis-hero__logo {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+}
+
+.fobis-hero__logo img {
+  max-height: 80px;
+}
+
+.fobis-hero__content {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.fobis-hero__title {
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.fobis-hero__subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0 0 0.75rem 0;
+}
+
+.fobis-hero__tagline {
+  font-size: 0.95rem;
+  max-width: 40rem;
+  margin: 0;
+}
+
+/* Kleine driehoek / "play"-accent in de hero */
+.fobis-hero::after {
+  content: "";
+  position: absolute;
+  right: 2.5rem;
+  bottom: -1.5rem;
+  border-top: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid transparent;
+  border-left: 2.5rem solid rgba(0, 0, 0, 0.08);
+}
+
+/* Container positioneren t.o.v. pseudo-element */
+.md-content__inner > .fobis-hero {
+  position: relative;
+}
+
+/* Cards voor "Verkenning / Architectuur / Marketing" */
+.fobis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.fobis-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.fobis-card__title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.fobis-card__marker {
+  width: 0;
+  height: 0;
+  border-top: 0.6rem solid transparent;
+  border-bottom: 0.6rem solid transparent;
+  border-left: 1rem solid var(--fobis-blue);
+  margin-right: 0.5rem;
+}
+
+.fobis-card--yellow .fobis-card__marker {
+  border-left-color: var(--fobis-yellow);
+}
+
+.fobis-card--green .fobis-card__marker {
+  border-left-color: var(--fobis-green);
+}
+
+.fobis-card--orange .fobis-card__marker {
+  border-left-color: var(--fobis-orange);
+}
+
+.fobis-card p {
+  margin: 0.25rem 0 0 0;
+  color: var(--fobis-text-muted);
+}
+
+/* Admonitions in FOBIS-kleuren */
+.md-typeset .admonition,
+.md-typeset details {
+  border-left-width: 4px;
+}
+
+.md-typeset .admonition.important,
+.md-typeset details.important {
+  border-left-color: var(--fobis-blue);
+}
+
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-left-color: var(--fobis-green);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-left-color: var(--fobis-orange);
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-left-color: var(--fobis-yellow);
+}
+
+/* Kleine typografische tweaks */
+.md-typeset strong {
+  font-weight: 600;
+}
+
+.md-nav__title,
+.md-header__title {
+  font-family: "Exo 2", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+

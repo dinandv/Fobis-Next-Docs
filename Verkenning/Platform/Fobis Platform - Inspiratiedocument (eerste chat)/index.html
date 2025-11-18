@@ -1,0 +1,1481 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Verkenning, architectuur en marketing rond FOBIS Next en het FOBIS Platform.">
+      
+      
+        <meta name="author" content="FOBIS">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Fobis Platform Inspiratiedocument (eerste chat) - FOBIS Platform Verkenning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Exo 2";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/fobis-next.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fobis-platform-inspiratiedocument-eerste-chat" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FOBIS Platform Verkenning" class="md-header__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FOBIS Platform Verkenning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fobis Platform   Inspiratiedocument (eerste chat)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FOBIS Platform Verkenning" class="md-nav__button md-logo" aria-label="FOBIS Platform Verkenning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FOBIS Platform Verkenning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkenning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verkenning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Inspiratiedocument/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspiratie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Visie%20en%20Framing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie en framing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Doelarchitectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doelarchitectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Deploymentmodellen%20%28On-prem%2C%20Hybride%2C%20SaaS%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploymentmodellen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Licensing%20Service%20Architectuur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing Service Architectuur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Logging%20en%20Observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging en Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Authenticatie%20en%20Autorisatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticatie en Autorisatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fobis%20Platform%20-%20Praatplaat%20en%20Stakeholdercommunicatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praatplaat en Stakeholdercommunicatie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive-app
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive-app
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apps/Drive-app/Drive%20App%20-%20Visie%2C%20Scope%20en%20Backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visie, scope en backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apps/Drive-app/Drive%20App%20-%20Integratie%20met%20ERP%20en%20Planningssystemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integratie met ERP en planningssystemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectuur (FOBIS Now)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectuur (FOBIS Now)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur%20%28FOBIS%20Now%29/FOBIS-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overzicht FOBIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur%20%28FOBIS%20Now%29/FOBIS-Libraries-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur%20%28FOBIS%20Now%29/FOBIS-Pipelines-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur%20%28FOBIS%20Now%29/Fobis-Utilities-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur%20%28FOBIS%20Now%29/Fobis-Verkoop-App-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verkoop-app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architectuur%20%28FOBIS%20Now%29/FOBIS-Customs-README/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Marketing/FOBIS%20Next%20-%20Merkverhaal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FOBIS Next – merkverhaal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fobis-platform-inspiratiedocument-eerste-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fobis Platform – Inspiratiedocument (eerste chat)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-overzicht-twee-sporen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Overzicht: twee sporen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fobis-platform-kader-architectuur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fobis Platform – Kader &amp; Architectuur
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Fobis Platform – Kader &amp; Architectuur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-doel-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Doel &amp; scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-principes-richtlijnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Principes &amp; richtlijnen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-architectuur-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Architectuur (high-level)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-security-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Security &amp; identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-kwaliteit-devops-werkwijze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Kwaliteit, DevOps &amp; werkwijze
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-drive-app-visie-scope-eerste-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Drive App – Visie, Scope &amp; Eerste Backlog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Drive App – Visie, Scope &amp; Eerste Backlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-visie-doelstellingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Visie &amp; doelstellingen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-belangrijkste-gebruikersflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Belangrijkste gebruikersflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mvp-scope-vs-latere-uitbreidingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 MVP scope vs latere uitbreidingen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-eerste-user-stories-voorbeeld" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Eerste user stories (voorbeeld)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-randvoorwaarden-non-functionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Randvoorwaarden &amp; non-functionals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-roadmap-tot-januari-voorstel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Roadmap tot januari (voorstel)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mogelijke-vervolgstappen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Mogelijke vervolgstappen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Fobis Platform   Inspiratiedocument (eerste chat)</h1>
+
+<h2 id="fobis-platform-inspiratiedocument-eerste-chat">Fobis Platform – Inspiratiedocument (eerste chat)</h2>
+<p>Je opdracht is eigenlijk: <strong>zorg dat er begin januari een helder kader ligt</strong> waar Henk en Bob meteen in kunnen stappen (architectuur, werkwijze, scope, eerste backlog). Dit document vat de eerste verkenning samen en kan als inspiratie en basis dienen.</p>
+<hr />
+<h2 id="1-overzicht-twee-sporen">1. Overzicht: twee sporen</h2>
+<p>We werken met <strong>twee sporen</strong>:</p>
+<ul>
+<li><strong>Fobis Platform – kader &amp; architectuur</strong></li>
+<li><strong>Drive App – visie, scope &amp; eerste backlog</strong></li>
+</ul>
+<p>Doel: dat er een <strong>concreet pakket aan kaders en documenten</strong> ligt voordat Henk en Bob van 4DotNet aanhaken.</p>
+<hr />
+<h2 id="2-fobis-platform-kader-architectuur">2. Fobis Platform – Kader &amp; Architectuur</h2>
+<h3 id="21-doel-scope">2.1 Doel &amp; scope</h3>
+<ul>
+<li><strong>Doel platform</strong>:  </li>
+<li><strong>Fobis moderniseren</strong> zodat nieuwe (cloud) apps snel, veilig en herhaalbaar gebouwd kunnen worden.  </li>
+<li><strong>Partners</strong> (zoals 4DotNet en externe partijen) in staat stellen om zelfstandig op het platform te ontwikkelen binnen duidelijke kaders.</li>
+<li><strong>Scope eerste fase</strong>:</li>
+<li><strong>Basisplatform + eerste app (Drive App)</strong> als “referentie-implementatie”.</li>
+<li>Focus op <strong>authenticatie, autorisatie, API-laag en integratie met bestaand Fobis</strong>.</li>
+<li><strong>Out-of-scope (nu)</strong>:</li>
+<li>Volledige herbouw van bestaande Fobis-functionaliteit.</li>
+<li>Complexe analytics/BI-oplossingen (alleen basis-logging en -metrics).</li>
+</ul>
+<h3 id="22-principes-richtlijnen">2.2 Principes &amp; richtlijnen</h3>
+<p>Formuleer een korte set platformprincipes, bijvoorbeeld:</p>
+<ul>
+<li><strong>Cloud-first</strong>: nieuwe oplossingen draaien primair in de cloud (bijv. Azure/AWS – invullen afhankelijk van jullie keuze).</li>
+<li><strong>API-first</strong>: alle functionaliteit wordt via goed ontworpen API’s ontsloten.</li>
+<li><strong>Security-by-design</strong>: identity, autorisatie, logging en audittrail zijn basis, geen nice-to-have.</li>
+<li><strong>Re-use over rebuild</strong>: waar mogelijk bestaande Fobis-logica hergebruiken via integraties.</li>
+<li><strong>Configurabel, niet customizebaar</strong>: voorkeur voor configuratie boven maatwerk.</li>
+</ul>
+<h3 id="23-architectuur-high-level">2.3 Architectuur (high-level)</h3>
+<ul>
+<li><strong>Doelarchitectuur</strong>:</li>
+<li><strong>Backend</strong>: bijvoorbeeld een set services (modulaire monoliet of microservices) met een duidelijke API-laag.</li>
+<li><strong>Frontend/apps</strong>: losse apps (web/mobile) die via de API-laag praten met Fobis Platform.</li>
+<li><strong>Integratielaag met bestaand Fobis</strong>: queues, API’s of database-integratie (afhankelijk van huidige situatie).</li>
+<li><strong>Technologiestack (voorstel)</strong>:</li>
+<li><strong>Cloud</strong>: Azure/AWS? (hier jouw voorkeur/organisatie-standaard invullen).</li>
+<li><strong>Backend</strong>: bijv. .NET 8 + REST/GraphQL API’s.</li>
+<li><strong>Frontend</strong>: bijv. React/React Native of Flutter (voor Drive App).</li>
+<li><strong>Database</strong>: relationeel (bijv. SQL) + eventueel document store (bijv. CosmosDB) voor specifieke use cases.</li>
+<li><strong>Integraties</strong>:</li>
+<li>Hoe praat Fobis Platform met het bestaande Fobis-systeem?</li>
+<li>Welke data wordt leidend waar? (master data vs transactie data).</li>
+</ul>
+<h3 id="24-security-identity">2.4 Security &amp; identity</h3>
+<ul>
+<li><strong>Identity provider</strong>:</li>
+<li>Bepaal of jullie <strong>Azure AD / Entra ID</strong> of een andere IdP gebruiken.</li>
+<li><strong>Gebruikers en rollen</strong>:</li>
+<li>Chauffeur, planner, beheerder, partner-ontwikkelaar, etc.</li>
+<li><strong>Autorisatie model</strong>:</li>
+<li>Role-based of claims-based, hoe wordt dit centraal geregeld?</li>
+<li><strong>Compliance &amp; privacy</strong>:</li>
+<li>AVG: welke persoonsgegevens in Drive App? Bewaartermijnen, logging, audittrail.</li>
+</ul>
+<h3 id="25-kwaliteit-devops-werkwijze">2.5 Kwaliteit, DevOps &amp; werkwijze</h3>
+<ul>
+<li><strong>Development proces</strong>:</li>
+<li>Scrum/Kanban, sprints, refinement, retro’s.</li>
+<li><strong>Branching &amp; code review</strong>:</li>
+<li>Git-flow/Trunk-based, pull requests, code review regels.</li>
+<li><strong>CI/CD</strong>:</li>
+<li>Minimale eisen: automatische build, tests, quality checks, deployment naar test/acceptatie/ productie.</li>
+<li><strong>Quality gates</strong>:</li>
+<li>Unit/integration tests, code coverage, static code analysis, performance-sanity checks.</li>
+</ul>
+<hr />
+<h2 id="3-drive-app-visie-scope-eerste-backlog">3. Drive App – Visie, Scope &amp; Eerste Backlog</h2>
+<h3 id="31-visie-doelstellingen">3.1 Visie &amp; doelstellingen</h3>
+<ul>
+<li><strong>Visie</strong>:  </li>
+<li>De Drive App is de primaire tool voor chauffeurs om <strong>ritten te zien en leveringen af te melden</strong>, met een gebruikservaring vergelijkbaar of beter dan Distririjden.</li>
+<li><strong>Businessdoelen</strong>:</li>
+<li>Minder fouten in afleverregistratie.</li>
+<li>Snellere verwerking in Fobis (real-time waar mogelijk).</li>
+<li>Minder papier/telefoontjes met planning.</li>
+</ul>
+<h3 id="32-belangrijkste-gebruikersflows">3.2 Belangrijkste gebruikersflows</h3>
+<p>Beschrijf per flow kort de stappen (later uitwerken met Henk &amp; Bob):</p>
+<ul>
+<li><strong>Flow 1 – Inloggen chauffeur</strong></li>
+<li><strong>Flow 2 – Ritselectie / overzicht ritten van vandaag</strong></li>
+<li><strong>Flow 3 – Overzicht stops/leveringen binnen een rit</strong></li>
+<li><strong>Flow 4 – Levering afmelden (geslaagd / niet-geslaagd + reden)</strong></li>
+<li><strong>Flow 5 – Foto’s / handtekening toevoegen (optioneel)</strong></li>
+<li><strong>Flow 6 – Offline gebruik en synchronisatie</strong> (als relevant in jullie context)</li>
+</ul>
+<h3 id="33-mvp-scope-vs-latere-uitbreidingen">3.3 MVP scope vs latere uitbreidingen</h3>
+<ul>
+<li><strong>MVP (voorstel)</strong>:</li>
+<li>Inloggen chauffeur.</li>
+<li>Rittenoverzicht (dagniveau).</li>
+<li>Leveringen per rit tonen (basisgegevens).</li>
+<li>Levering afmelden met status (geleverd / niet geleverd) en standaardredenen.</li>
+<li>Basis logging / monitoring.</li>
+<li><strong>Post-MVP ideeën</strong>:</li>
+<li>Foto’s van leverbon/omstandigheden.</li>
+<li>Digitale handtekening klant.</li>
+<li>Navigatie-integratie (Google Maps/Waze).</li>
+<li>Push-notificaties aan chauffeurs.</li>
+</ul>
+<h3 id="34-eerste-user-stories-voorbeeld">3.4 Eerste user stories (voorbeeld)</h3>
+<p>Je kunt alvast een eerste backlog-skelet maken, bijvoorbeeld:</p>
+<ul>
+<li><strong>Als chauffeur</strong> wil ik kunnen <strong>inloggen</strong> met mijn bedrijfsaccount zodat alleen ik bij mijn ritten kan.</li>
+<li><strong>Als chauffeur</strong> wil ik een <strong>overzicht zien van mijn ritten van vandaag</strong> zodat ik weet welke ritten ik moet rijden.</li>
+<li><strong>Als chauffeur</strong> wil ik per rit <strong>alle stops met basisinformatie</strong> zien zodat ik weet waar ik moet leveren.</li>
+<li><strong>Als chauffeur</strong> wil ik een levering <strong>als ‘geleverd’ kunnen markeren</strong> zodat de planning realtime inzicht heeft.</li>
+<li><strong>Als chauffeur</strong> wil ik een levering <strong>als ‘niet geleverd’ met reden kunnen markeren</strong> zodat de planning weet wat er misging.</li>
+<li><strong>Als planner</strong> wil ik <strong>in Fobis de actuele afleverstatus</strong> zien zodat ik klanten kan informeren.</li>
+</ul>
+<p>(Hier kun je later met 4DotNet dieper op ingaan met acceptatiecriteria en technische tasks.)</p>
+<h3 id="35-randvoorwaarden-non-functionals">3.5 Randvoorwaarden &amp; non-functionals</h3>
+<ul>
+<li><strong>Performance</strong>: app moet soepel werken op gemiddelde Android-toestellen van chauffeurs.</li>
+<li><strong>Offline</strong>: minimaal “graceful” om kunnen gaan met tijdelijk geen netwerk (opslaan in queue, later sync).</li>
+<li><strong>Beveiliging</strong>: toestelverlies, sessietimeout, minimaliseren van data op device.</li>
+<li><strong>Logging &amp; monitoring</strong>: per rit en per chauffeur kunnen zien wat er is gebeurd.</li>
+</ul>
+<hr />
+<h2 id="4-roadmap-tot-januari-voorstel">4. Roadmap tot januari (voorstel)</h2>
+<p>Wat jij de komende weken kunt doen, zodat Henk &amp; Bob goed kunnen starten:</p>
+<ul>
+<li><strong>Nov–december</strong>:</li>
+<li><strong>Platformkader-document</strong> uitwerken met: doel, principes, high-level architectuur, security, werkwijze.</li>
+<li><strong>Drive App-inceptiedocument</strong>: visie, flows, MVP-scope, eerste user stories.</li>
+<li>Inventarisatie huidige Fobis-landschap: welke data, welke interfaces, waar zitten de “haakjes”.</li>
+<li><strong>Begin januari</strong>:</li>
+<li>Gezamenlijke <strong>inception/workshop</strong> met 4DotNet op basis van jouw documenten.</li>
+<li>Architectuurschets aanscherpen + technische spikes bepalen.</li>
+<li>MVP-backlog finaliseren en starten met implementatie.</li>
+</ul>
+<hr />
+<h2 id="5-mogelijke-vervolgstappen">5. Mogelijke vervolgstappen</h2>
+<p>Mogelijke vervolgstappen op basis van dit inspiratiedocument:</p>
+<ul>
+<li>Een <strong>formeler “Fobis Platform Kader”-document</strong> maken met hoofdstukindeling volgens jullie standaard.</li>
+<li>Een <strong>Drive App-inceptiedocument</strong> met meer detail (user journeys, schermschetsen, acceptatiecriteria).</li>
+<li>Samen met Henk en Bob deze kaders reviewen en aanscherpen tijdens een kick-off/inception begin januari.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
