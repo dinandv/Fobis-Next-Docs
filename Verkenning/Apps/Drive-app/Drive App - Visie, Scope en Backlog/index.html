@@ -786,6 +786,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. Hoofdgebruikersflows (niveau 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence-diagram-hoofdgebruikersflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequence diagram hoofdgebruikersflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1612,6 +1629,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. Hoofdgebruikersflows (niveau 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence-diagram-hoofdgebruikersflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequence diagram hoofdgebruikersflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1779,17 +1813,17 @@
 </ul>
 <hr />
 <h3 id="2-visie">2. Visie</h3>
-<p>De Drive App is:</p>
+<p>De Drive App zou kunnen zijn:</p>
 <ul>
 <li>De <strong>primair gebruikte tool voor chauffeurs</strong> tijdens hun ritten.  </li>
 <li>Een <strong>showcase</strong> van Fobis Platform:  </li>
-<li>Gebruikt de centrale auth/autorisatie/licensing.  </li>
-<li>Werkt via de API- en integratielaag naar Fobis Core.  </li>
-<li>Laat zien hoe logging/observability en proactieve support werken.  </li>
+<li>Zou de centrale auth/autorisatie/licensing kunnen gebruiken.  </li>
+<li>Zou kunnen werken via de API- en integratielaag naar Fobis Core.  </li>
+<li>Zou kunnen laten zien hoe logging/observability en proactieve support werken.  </li>
 <li>Een app die:  </li>
-<li><strong>Eenvoudig</strong> te gebruiken is (minimale afleiding, grote knoppen, weinig tekst).  </li>
-<li><strong>Robuust</strong> is in omgevingen met slechte of wisselende verbinding.  </li>
-<li>Makkelijk uit te rollen en te beheren is (updates, configuratie, licenties).  </li>
+<li><strong>Eenvoudig</strong> te gebruiken zou kunnen zijn (minimale afleiding, grote knoppen, weinig tekst).  </li>
+<li><strong>Robuust</strong> zou kunnen zijn in omgevingen met slechte of wisselende verbinding.  </li>
+<li>Makkelijk uit te rollen en te beheren zou kunnen zijn (updates, configuratie, licenties).  </li>
 </ul>
 <hr />
 <h3 id="3-belangrijkste-gebruikersrollen">3. Belangrijkste gebruikersrollen</h3>
@@ -1806,6 +1840,117 @@
 </ul>
 <hr />
 <h3 id="4-hoofdgebruikersflows-niveau-1">4. Hoofdgebruikersflows (niveau 1)</h3>
+<h4 id="sequence-diagram-hoofdgebruikersflows">Sequence diagram hoofdgebruikersflows</h4>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Chauffeur
+    participant DA as Drive App
+    participant LC as Local Cache/Queue
+    participant IdP as Identity Provider
+    participant FP as Fobis Platform
+    participant FC as Fobis Core
+
+    Note over C,FC: 1. Inloggen als chauffeur
+    C-&gt;&gt;DA: Start app
+    DA-&gt;&gt;IdP: Authenticatie verzoek
+    IdP-&gt;&gt;C: Login scherm
+    C-&gt;&gt;IdP: Credentials
+    IdP-&gt;&gt;DA: Access token + user info
+    DA-&gt;&gt;FP: Haal ritten op (vandaag + komende dagen)
+    FP-&gt;&gt;FC: Query ritten voor chauffeur
+    FC-&gt;&gt;FP: Ritgegevens
+    FP-&gt;&gt;DA: Ritlijst
+    DA-&gt;&gt;LC: Cache ritgegevens lokaal
+
+    Note over C,FC: 2. Overzicht ritten van vandaag
+    DA-&gt;&gt;C: Toon lijst ritten&lt;br/&gt;(ritnummer, starttijd, aantal stops, status)
+    C-&gt;&gt;DA: Selecteer rit
+
+    Note over C,FC: 3. Overzicht stops/leveringen binnen een rit
+    DA-&gt;&gt;LC: Haal stops op uit cache
+    alt Cache beschikbaar
+        LC-&gt;&gt;DA: Stops uit cache
+    else Cache leeg of verouderd
+        DA-&gt;&gt;FP: Haal stops op voor rit
+        FP-&gt;&gt;FC: Query stops voor rit
+        FC-&gt;&gt;FP: Stopgegevens
+        FP-&gt;&gt;DA: Stops (klantnaam, adres, tijdvenster, colli/pallets/gewicht, status)
+        DA-&gt;&gt;LC: Update cache
+    end
+    DA-&gt;&gt;C: Toon stops in ritvolgorde
+
+    Note over C,FC: 4. Levering afmelden (geslaagd)
+    C-&gt;&gt;DA: Selecteer stop
+    DA-&gt;&gt;C: Toon stopdetails + "Afgeleverd" knop
+    C-&gt;&gt;DA: Bevestig "Afgeleverd"
+    DA-&gt;&gt;LC: Update status lokaal → Afgeleverd
+    alt Online verbinding
+        DA-&gt;&gt;FP: Update delivery status (afgeleverd)
+        FP-&gt;&gt;FC: Order/delivery update
+        FC-&gt;&gt;FP: Bevestiging
+        FP-&gt;&gt;DA: Status update bevestigd
+        DA-&gt;&gt;LC: Markeer als gesynchroniseerd
+    else Offline
+        DA-&gt;&gt;LC: Voeg toe aan sync queue
+        Note over LC: Wacht op verbinding
+    end
+    DA-&gt;&gt;C: Bevestig status update
+
+    Note over C,FC: 5. Levering afmelden (niet geslaagd)
+    C-&gt;&gt;DA: Selecteer stop
+    DA-&gt;&gt;C: Toon stopdetails + standaardredenen
+    C-&gt;&gt;DA: Kies reden (+ optioneel toelichting/foto)
+    DA-&gt;&gt;LC: Update status lokaal → Niet-afgeleverd + reden
+    alt Online verbinding
+        DA-&gt;&gt;FP: Update delivery status (niet-afgeleverd + reden)
+        FP-&gt;&gt;FC: Order/delivery update
+        FC-&gt;&gt;FP: Bevestiging
+        FP-&gt;&gt;DA: Status update bevestigd
+        DA-&gt;&gt;LC: Markeer als gesynchroniseerd
+    else Offline
+        DA-&gt;&gt;LC: Voeg toe aan sync queue
+        Note over LC: Wacht op verbinding
+    end
+    DA-&gt;&gt;C: Bevestig status update
+
+    Note over C,FC: 6. (Optioneel) Foto/handtekening vastleggen
+    alt Geslaagde levering
+        C-&gt;&gt;DA: Vraag handtekening/foto
+        DA-&gt;&gt;C: Toon tekenpad/camera
+        C-&gt;&gt;DA: Handtekening + foto bon/papieren
+        DA-&gt;&gt;LC: Sla handtekening/foto op
+        alt Online verbinding
+            DA-&gt;&gt;FP: Upload handtekening/foto
+            FP-&gt;&gt;FC: Koppel aan delivery
+        else Offline
+            DA-&gt;&gt;LC: Voeg toe aan sync queue
+        end
+    else Niet-geslaagde levering
+        C-&gt;&gt;DA: Vraag foto situatie
+        DA-&gt;&gt;C: Toon camera
+        C-&gt;&gt;DA: Foto (gesloten deur, schade, etc.)
+        DA-&gt;&gt;LC: Sla foto op
+        alt Online verbinding
+            DA-&gt;&gt;FP: Upload foto
+            FP-&gt;&gt;FC: Koppel aan delivery
+        else Offline
+            DA-&gt;&gt;LC: Voeg toe aan sync queue
+        end
+    end
+
+    Note over C,FC: 7. Synchronisatie en offline gebruik
+    loop Periodiek of bij verbinding herstel
+        DA-&gt;&gt;LC: Check sync queue
+        LC-&gt;&gt;DA: Pending updates
+        alt Items in queue
+            loop Voor elk item in queue
+                DA-&gt;&gt;FP: Sync update (status/foto/handtekening)
+                FP-&gt;&gt;FC: Verwerk update
+                FC-&gt;&gt;FP: Bevestiging
+                FP-&gt;&gt;DA: Sync bevestigd
+                DA-&gt;&gt;LC: Markeer als gesynchroniseerd
+            end
+        end
+    end</code></pre>
 <ol>
 <li><strong>Inloggen als chauffeur</strong>  </li>
 <li>Chauffeur start de app.  </li>
@@ -2014,12 +2159,12 @@
 <hr />
 <h3 id="11-samenvatting">11. Samenvatting</h3>
 <ul>
-<li>De Drive App is de eerste <strong>referentie-app</strong> op Fobis Platform en richt zich op het <strong>afmelden van leveringen door chauffeurs</strong>.  </li>
+<li>De Drive App zou de eerste <strong>referentie-app</strong> op Fobis Platform kunnen zijn en zou zich kunnen richten op het <strong>afmelden van leveringen door chauffeurs</strong>.  </li>
 <li>Dit document geeft:  </li>
-<li>Visie, scope en MVP-afbakening.  </li>
-<li>Hoofdgebruikersflows en eerste user stories.  </li>
+<li>Visie, scope en MVP-afbakening (als voorstel).  </li>
+<li>Hoofdgebruikersflows en eerste user stories (verkennend).  </li>
 <li>Non-functionele eisen, openstaande beslispunten en post-MVP epics (geïnspireerd door DistriRijden).  </li>
-<li>Het vormt daarmee een goede basis voor een gezamenlijke <strong>inception met 4DotNet</strong> om het ontwerp en de implementatie te starten.  </li>
+<li>Het vormt daarmee een verkennende basis voor een gezamenlijke <strong>inception met 4DotNet</strong> om het ontwerp en de implementatie te starten.  </li>
 </ul>
 
 

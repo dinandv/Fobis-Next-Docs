@@ -1899,16 +1899,16 @@
 
 <h2 id="fobis-platform-deploymentmodellen-on-prem-klant-cloud-rbk-saas">Fobis Platform – Deploymentmodellen (on-prem, klant-cloud, RBK SaaS)</h2>
 <h3 id="1-doel-van-dit-document">1. Doel van dit document</h3>
-<p>Dit document beschrijft 3 <strong>standaard deploymentmodellen</strong> voor Fobis Platform:</p>
+<p>Dit document verkent 3 <strong>mogelijke deploymentmodellen</strong> voor Fobis Platform:</p>
 <ol>
 <li>Volledig <strong>on-premise</strong> bij de klant.  </li>
 <li><strong>Klant-cloud / hybride</strong> (platform in cloud van klant, Fobis Core eventueel on-prem).  </li>
 <li><strong>RBK SaaS</strong> (platform in RBK-cloud, koppeling naar klantomgeving).  </li>
 </ol>
-<p>Voor elk model beschrijven we:</p>
+<p>Voor elk model verkennen we:</p>
 <ul>
 <li>Architectuur op hoofdlijnen.  </li>
-<li>Hoe <strong>auth</strong>, <strong>licensing</strong> en <strong>logging/observability</strong> zijn ingericht.  </li>
+<li>Hoe <strong>auth</strong>, <strong>licensing</strong> en <strong>logging/observability</strong> zouden kunnen zijn ingericht.  </li>
 <li>Voordelen/nadelen en typische use-cases.  </li>
 </ul>
 <hr />
@@ -1927,7 +1927,7 @@
 </ul>
 <h4 id="22-architectuur-hoog-niveau">2.2 Architectuur (hoog niveau)</h4>
 <ul>
-<li><strong>Binnen klantomgeving</strong>:  </li>
+<li><strong>Binnen klantomgeving</strong> zouden kunnen draaien:  </li>
 <li>Fobis Core (bestaande applicatie).  </li>
 <li>Fobis Platform Services:  <ul>
 <li>API Gateway.  </li>
@@ -1936,7 +1936,7 @@
 <li>Logging/observability (Serilog + lokale sinks/logviewer).  </li>
 </ul>
 </li>
-<li>Apps (bijv. Drive App) verbinden met de on-prem API’s (eventueel via VPN of private netwerk).  </li>
+<li>Apps (bijv. Drive App) zouden kunnen verbinden met de on-prem API's (eventueel via VPN of private netwerk).  </li>
 </ul>
 <h4 id="23-auth-licensing-logging">2.3 Auth, licensing, logging</h4>
 <ul>
@@ -1976,11 +1976,11 @@
 <p>Dit model is aantrekkelijk voor klanten die wel de voordelen van cloud willen, maar controle willen houden over tenant, beveiliging en kosten.</p>
 <h4 id="32-architectuur-hoog-niveau">3.2 Architectuur (hoog niveau)</h4>
 <ul>
-<li><strong>In klant-cloud</strong>:  </li>
+<li><strong>In klant-cloud</strong> zouden kunnen draaien:  </li>
 <li>Fobis Platform Services (API Gateway, auth integratie, licensing, logging/metrics).  </li>
 <li>Eventueel Fobis Core (IaaS/PaaS).  </li>
 <li>Cloud-native logging/monitoring (bijv. Application Insights, Log Analytics).  </li>
-<li><strong>In klant-on-prem</strong> (optioneel):  </li>
+<li><strong>In klant-on-prem</strong> (optioneel) zouden kunnen blijven:  </li>
 <li>Machines, shopfloor, legacy-systemen.  </li>
 <li>Fobis Core als on-prem installatie.  </li>
 <li>Connectie met klant-cloud via VPN/ExpressRoute/private link.  </li>
@@ -2025,7 +2025,7 @@
 <p>Dit model maakt van Fobis Platform een <strong>volwaardige SaaS-oplossing</strong>.</p>
 <h4 id="42-architectuur-hoog-niveau">4.2 Architectuur (hoog niveau)</h4>
 <ul>
-<li><strong>In RBK-cloud</strong>:  </li>
+<li><strong>In RBK-cloud</strong> zouden kunnen draaien:  </li>
 <li>Fobis Platform Services multi-tenant:  <ul>
 <li>API Gateway.  </li>
 <li>Auth-integratie (centrale IdP).  </li>
@@ -2034,9 +2034,9 @@
 </ul>
 </li>
 <li>Optioneel: Fobis Core-instanties per tenant (multi-tenant of per klant gescheiden).  </li>
-<li><strong>Bij klant</strong>:  </li>
+<li><strong>Bij klant</strong> zouden kunnen blijven:  </li>
 <li>On-prem systemen (machines, shopfloor).  </li>
-<li>Eventuele koppelingen via VPN, edge-componenten of API’s.  </li>
+<li>Eventuele koppelingen via VPN, edge-componenten of API's.  </li>
 </ul>
 <h4 id="43-auth-licensing-logging">4.3 Auth, licensing, logging</h4>
 <ul>
@@ -2139,22 +2139,22 @@
 <hr />
 <h3 id="7-implicaties-voor-ontwikkeling-en-beheer">7. Implicaties voor ontwikkeling en beheer</h3>
 <ul>
-<li>Ontwikkelteams:  </li>
+<li>Ontwikkelteams zouden kunnen:  </li>
 <li>Bouwen services <strong>deployment-agnostisch</strong> (12-factor principes).  </li>
-<li>Testen toepassingen in scenario’s die verschillende modellen simuleren.  </li>
-<li>Beheer:  </li>
-<li>Beschrijft runbooks per deploymentmodel.  </li>
-<li>Richt monitoring/alerting per model in, maar met zoveel mogelijk hergebruik.  </li>
+<li>Testen toepassingen in scenario's die verschillende modellen simuleren.  </li>
+<li>Beheer zou kunnen:  </li>
+<li>Runbooks per deploymentmodel beschrijven.  </li>
+<li>Monitoring/alerting per model inrichten, maar met zoveel mogelijk hergebruik.  </li>
 </ul>
 <hr />
 <h3 id="8-samenvatting">8. Samenvatting</h3>
 <ul>
-<li>Fobis Platform ondersteunt drie hoofddeploymentmodellen: <strong>on-prem</strong>, <strong>klant-cloud/hybride</strong> en <strong>RBK SaaS</strong>.  </li>
-<li>In alle modellen gelden dezelfde principes voor:  </li>
+<li>Fobis Platform zou drie hoofddeploymentmodellen kunnen ondersteunen: <strong>on-prem</strong>, <strong>klant-cloud/hybride</strong> en <strong>RBK SaaS</strong>.  </li>
+<li>In alle modellen zouden dezelfde principes kunnen gelden voor:  </li>
 <li><strong>Auth</strong> (OIDC/OAuth2, claims-based).  </li>
 <li><strong>Licensing</strong> (centrale service of lokale tokens).  </li>
 <li><strong>Logging/observability</strong> (Serilog + centrale of lokale aggregatie).  </li>
-<li>Deze flexibiliteit maakt het mogelijk om:  </li>
+<li>Deze flexibiliteit zou het mogelijk kunnen maken om:  </li>
 <li>Vandaag klanten te bedienen in hun voorkeursmodel.  </li>
 <li>Tegelijkertijd de <strong>SaaS-ready platformvisie</strong> van RBK waar te maken.  </li>
 </ul>

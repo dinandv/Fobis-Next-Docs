@@ -1665,17 +1665,17 @@
   INTEG -.-&gt; LOG</code></pre>
 <h2 id="fobis-platform-doelarchitectuur-hoog-niveau">Fobis Platform – Doelarchitectuur (hoog niveau)</h2>
 <h3 id="1-doel-van-deze-architectuurschets">1. Doel van deze architectuurschets</h3>
-<p>Deze schets beschrijft de <strong>doelarchitectuur</strong> van Fobis Platform op hoofdlijnen:</p>
+<p>Deze schets verkent de <strong>doelarchitectuur</strong> van Fobis Platform op hoofdlijnen:</p>
 <ul>
-<li>Hoe <strong>Fobis Core</strong> (bestaand product) zich verhoudt tot het nieuwe platform.  </li>
-<li>Welke <strong>platformservices</strong> er zijn (auth, licensing, logging, integratie).  </li>
-<li>Hoe <strong>apps</strong> zoals de Drive App daarop aansluiten.  </li>
-<li>Hoe dit alles zowel <strong>SaaS-ready als on-prem/hybride</strong> inzetbaar is.  </li>
+<li>Hoe <strong>Fobis Core</strong> (bestaand product) zich zou kunnen verhouden tot het nieuwe platform.  </li>
+<li>Welke <strong>platformservices</strong> er zouden kunnen zijn (auth, licensing, logging, integratie).  </li>
+<li>Hoe <strong>apps</strong> zoals de Drive App daarop zouden kunnen aansluiten.  </li>
+<li>Hoe dit alles zowel <strong>SaaS-ready als on-prem/hybride</strong> inzetbaar zou kunnen zijn.  </li>
 </ul>
-<p>Het is een <strong>richtinggevend</strong> document, geen detailontwerp.</p>
+<p>Het is een <strong>verkennend, richtinggevend</strong> document met voorstellen en aannames, geen definitief detailontwerp.</p>
 <hr />
 <h3 id="2-hoofdcomponenten-logische-architectuur">2. Hoofdcomponenten (logische architectuur)</h3>
-<p>Op hoog niveau onderscheiden we vier zones:</p>
+<p>Op hoog niveau zouden we vier zones kunnen onderscheiden:</p>
 <ol>
 <li><strong>Klantomgeving</strong>  </li>
 <li>Fobis Core (bestaande on-prem installatie).  </li>
@@ -1708,12 +1708,12 @@
 </ol>
 <hr />
 <h3 id="3-scheiding-tussen-control-plane-en-data-plane">3. Scheiding tussen control plane en data plane</h3>
-<p>Een belangrijk ontwerpprincipe is de scheiding tussen:</p>
+<p>Een belangrijk ontwerpprincipe dat we verkennen is de scheiding tussen:</p>
 <ul>
 <li><strong>Control plane</strong>:  </li>
 <li>Centrale diensten zoals authenticatie, autorisatie, licensering, configuratie, logging-aggregatie, monitoring.  </li>
 <li>
-<p>Kan in RBK-cloud, klant-cloud of on-prem draaien (afhankelijk van deploymentmodel), maar is logisch “centrale” laag.  </p>
+<p>Zou kunnen draaien in RBK-cloud, klant-cloud of on-prem (afhankelijk van deploymentmodel), maar is logisch "centrale" laag.  </p>
 </li>
 <li>
 <p><strong>Data plane</strong>:  </p>
@@ -1721,28 +1721,28 @@
 <li>De datastromen en processen dicht bij de klant: Fobis Core, shopfloor-integraties, lokale databases, message queues.  </li>
 <li>Blijft waar nodig <strong>dicht bij de fabriek</strong> (latency, connectiviteit, regelgeving).  </li>
 </ul>
-<p>Nieuwe apps (zoals Drive App) praten primair met de <strong>control plane</strong> (API’s, auth, licensing) en indirect met de <strong>data plane</strong> via platformservices.</p>
+<p>Nieuwe apps (zoals Drive App) zouden primair met de <strong>control plane</strong> kunnen praten (API's, auth, licensing) en indirect met de <strong>data plane</strong> via platformservices.</p>
 <hr />
 <h3 id="4-componenten-binnen-fobis-platform-services">4. Componenten binnen Fobis Platform Services</h3>
-<p>Binnen de platformlaag onderscheiden we de volgende logische services:</p>
+<p>Binnen de platformlaag zouden we de volgende logische services kunnen onderscheiden:</p>
 <ol>
 <li><strong>API Gateway / API Layer</strong>  </li>
-<li>Enig toegangspunt voor externe clients (apps, partners).  </li>
+<li>Zou het enige toegangspunt kunnen zijn voor externe clients (apps, partners).  </li>
 <li>
-<p>Verzorgt:  </p>
+<p>Zou kunnen verzorgen:  </p>
 <ul>
 <li>Routing naar interne services.  </li>
 <li>Authenticatiecontrole (verificatie van tokens).  </li>
 <li>Basic rate limiting / throttling.  </li>
-<li>Versiebeheer van API’s.  </li>
+<li>Versiebeheer van API's.  </li>
 </ul>
 </li>
 <li>
 <p><strong>Auth &amp; Identity Integratie</strong>  </p>
 </li>
-<li>Sluit aan op een externe of interne <strong>identity provider</strong> (bijv. Entra ID, Keycloak, …) via OpenID Connect.  </li>
+<li>Zou kunnen aansluiten op een externe of interne <strong>identity provider</strong> (bijv. Entra ID, Keycloak, …) via OpenID Connect.  </li>
 <li>
-<p>Zorgt voor:  </p>
+<p>Zou kunnen zorgen voor:  </p>
 <ul>
 <li>Single sign-on voor gebruikers.  </li>
 <li>Mapping van externe identiteiten naar Fobis-rollen/tenants.  </li>
@@ -1751,38 +1751,38 @@
 <li>
 <p><strong>Authorization Service</strong>  </p>
 </li>
-<li>Beheert <strong>rollen, rechten en policies</strong> binnen Fobis Platform.  </li>
+<li>Zou kunnen beheren <strong>rollen, rechten en policies</strong> binnen Fobis Platform.  </li>
 <li>
-<p>Biedt API’s om te bepalen of een gebruiker/klant een bepaalde actie mag uitvoeren.  </p>
+<p>Zou API's kunnen bieden om te bepalen of een gebruiker/klant een bepaalde actie mag uitvoeren.  </p>
 </li>
 <li>
 <p><strong>Licensing Service</strong>  </p>
 </li>
-<li>Legt vast welke <strong>modules/features</strong> per klant/tenant actief zijn.  </li>
-<li>Biedt API’s waarmee apps kunnen controleren of bepaalde functionaliteit beschikbaar is.  </li>
+<li>Zou kunnen vastleggen welke <strong>modules/features</strong> per klant/tenant actief zijn.  </li>
+<li>Zou API's kunnen bieden waarmee apps kunnen controleren of bepaalde functionaliteit beschikbaar is.  </li>
 <li>
-<p>Ondersteunt zowel SaaS als on-prem scenario’s (met caching en offline grace periods).  </p>
+<p>Zou zowel SaaS als on-prem scenario's kunnen ondersteunen (met caching en offline grace periods).  </p>
 </li>
 <li>
 <p><strong>Integration Services</strong>  </p>
 </li>
-<li>Koppelen Fobis Platform met:  <ul>
-<li>Fobis Core on-prem (bijv. via API’s, message queues, database sync).  </li>
-<li>Externe systemen (ERP’s, planning, BI).  </li>
+<li>Zouden kunnen koppelen Fobis Platform met:  <ul>
+<li>Fobis Core on-prem (bijv. via API's, message queues, database sync).  </li>
+<li>Externe systemen (ERP's, planning, BI).  </li>
 </ul>
 </li>
 <li>
-<p>Typische functies:  </p>
+<p>Typische functies die we verkennen:  </p>
 <ul>
 <li>Data-synchronisatie (masterdata, orders, productiegegevens).  </li>
-<li>Eventdistributie (bijv. “levering afgemeld” naar ERP).  </li>
+<li>Eventdistributie (bijv. "levering afgemeld" naar ERP).  </li>
 </ul>
 </li>
 <li>
 <p><strong>Logging &amp; Observability</strong>  </p>
 </li>
-<li>Centrale logs, metrics en tracing voor alle platformservices en apps.  </li>
-<li>Standaardiseert:  <ul>
+<li>Zou centrale logs, metrics en tracing kunnen bieden voor alle platformservices en apps.  </li>
+<li>Zou kunnen standaardiseren:  <ul>
 <li>Logformaat en -niveau.  </li>
 <li>Correlation-id over keten heen.  </li>
 <li>Tenant- en klantcontext in logs.  </li>
@@ -1791,75 +1791,75 @@
 </ol>
 <hr />
 <h3 id="5-fobis-core-in-relatie-tot-het-platform">5. Fobis Core in relatie tot het platform</h3>
-<p><strong>Fobis Core</strong> blijft het systeem dat:</p>
+<p><strong>Fobis Core</strong> zou het systeem kunnen blijven dat:</p>
 <ul>
 <li>Dicht bij de <strong>productieomgeving</strong> van de klant draait (on-prem of in klant-cloud).  </li>
-<li>Verantwoordelijk is voor:  </li>
+<li>Verantwoordelijk zou kunnen zijn voor:  </li>
 <li>Productielogica.  </li>
 <li>Nauw klant-specifieke configuratie.  </li>
 <li>Integratie met machines en lokale systemen.  </li>
 </ul>
-<p>In de doelarchitectuur:</p>
+<p>In de doelarchitectuur die we verkennen:</p>
 <ul>
-<li>Worden <strong>niet-versiegebonden componenten</strong> (mail, licensering, logging, auth) geleidelijk losgehaald naar Fobis Platform.  </li>
-<li>Krijgt Fobis Core een <strong>duidelijke integratielaag</strong>:  </li>
-<li>Gestandaardiseerde API’s of events richting Fobis Platform.  </li>
-<li>Minder directe koppelingen richting externe systemen; die verschuiven naar de platformlaag.  </li>
+<li>Zouden <strong>niet-versiegebonden componenten</strong> (mail, licensering, logging, auth) geleidelijk losgehaald kunnen worden naar Fobis Platform.  </li>
+<li>Zou Fobis Core een <strong>duidelijke integratielaag</strong> kunnen krijgen:  </li>
+<li>Gestandaardiseerde API's of events richting Fobis Platform.  </li>
+<li>Minder directe koppelingen richting externe systemen; die zouden kunnen verschuiven naar de platformlaag.  </li>
 </ul>
-<p>Dit creëert ruimte om:</p>
+<p>Dit zou ruimte kunnen creëren om:</p>
 <ul>
 <li>Nieuwe functionaliteit <strong>buiten</strong> Fobis Core te bouwen (bijv. Drive App).  </li>
 <li>Fobis Core stapsgewijs te moderniseren zonder alles tegelijk te moeten herschrijven.  </li>
 </ul>
 <hr />
 <h3 id="6-apps-bovenop-het-platform-bijv-drive-app">6. Apps bovenop het platform (bijv. Drive App)</h3>
-<p>Apps zoals de <strong>Drive App</strong> gebruiken Fobis Platform als fundament:</p>
+<p>Apps zoals de <strong>Drive App</strong> zouden Fobis Platform als fundament kunnen gebruiken:</p>
 <ul>
 <li><strong>Authenticatie &amp; autorisatie</strong>:  </li>
-<li>App laat gebruikers (bijv. chauffeurs) inloggen via de gekozen IdP.  </li>
+<li>App zou gebruikers (bijv. chauffeurs) kunnen laten inloggen via de gekozen IdP.  </li>
 <li>
-<p>De app ontvangt tokens met claims over gebruiker, rol, klant, tenant.  </p>
+<p>De app zou tokens kunnen ontvangen met claims over gebruiker, rol, klant, tenant.  </p>
 </li>
 <li>
 <p><strong>Businessfunctionaliteit</strong>:  </p>
 </li>
-<li>App praat met de API Gateway van Fobis Platform (bijv. <code>/api/drive/ritten</code>, <code>/api/drive/afmelden</code>).  </li>
+<li>App zou kunnen praten met de API Gateway van Fobis Platform (bijv. <code>/api/drive/ritten</code>, <code>/api/drive/afmelden</code>).  </li>
 <li>
-<p>Platformservices vertalen dit naar acties richting Fobis Core (bijv. via integratieservices).  </p>
+<p>Platformservices zouden dit kunnen vertalen naar acties richting Fobis Core (bijv. via integratieservices).  </p>
 </li>
 <li>
 <p><strong>Licensering</strong>:  </p>
 </li>
 <li>
-<p>Voor toegang tot Drive App-functionaliteit controleert de app / API of de klant hiervoor een geldige licentie heeft.  </p>
+<p>Voor toegang tot Drive App-functionaliteit zou de app / API kunnen controleren of de klant hiervoor een geldige licentie heeft.  </p>
 </li>
 <li>
 <p><strong>Logging</strong>:  </p>
 </li>
-<li>Acties in de app worden gelogd via de platformservices, zodat RBK en klant inzicht hebben in gebruik en problemen.  </li>
+<li>Acties in de app zouden kunnen worden gelogd via de platformservices, zodat RBK en klant inzicht hebben in gebruik en problemen.  </li>
 </ul>
-<p>Zo wordt de Drive App een <strong>referentie-implementatie</strong> van hoe andere toekomstige apps met Fobis Platform communiceren.</p>
+<p>Zo zou de Drive App een <strong>referentie-implementatie</strong> kunnen worden van hoe andere toekomstige apps met Fobis Platform zouden kunnen communiceren.</p>
 <hr />
 <h3 id="7-multi-tenant-denken">7. Multi-tenant denken</h3>
-<p>Hoewel Fobis vandaag vaak <strong>per klant geïnstalleerd</strong> wordt, is het belangrijk dat Fobis Platform <strong>multi-tenant</strong> kan werken:</p>
+<p>Hoewel Fobis vandaag vaak <strong>per klant geïnstalleerd</strong> wordt, verkennen we dat Fobis Platform <strong>multi-tenant</strong> zou kunnen werken:</p>
 <ul>
-<li>Elke klant / installatie wordt gezien als een <strong>tenant</strong>.  </li>
-<li>In alle lagen wordt de <strong>tenant-id</strong> meegenomen:  </li>
+<li>Elke klant / installatie zou kunnen worden gezien als een <strong>tenant</strong>.  </li>
+<li>In alle lagen zou de <strong>tenant-id</strong> kunnen worden meegenomen:  </li>
 <li>In gebruikersidentiteiten en claims.  </li>
 <li>In licenties.  </li>
 <li>In data en logregels.  </li>
 </ul>
-<p>Dit maakt het mogelijk om:</p>
+<p>Dit zou het mogelijk kunnen maken om:</p>
 <ul>
 <li>In een SaaS-scenario meerdere klanten op één platformomgeving te draaien.  </li>
-<li>Ook in on-prem/hybride scenario’s dezelfde code en patronen te gebruiken, maar dan vaak met één tenant per omgeving.  </li>
+<li>Ook in on-prem/hybride scenario's dezelfde code en patronen te gebruiken, maar dan vaak met één tenant per omgeving.  </li>
 </ul>
 <hr />
 <h3 id="8-deployment-op-hoofdlijnen">8. Deployment op hoofdlijnen</h3>
-<p>De doelarchitectuur moet drie hoofdmodellen ondersteunen (later verder uitgewerkt in een apart deploymentdocument):</p>
+<p>De doelarchitectuur die we verkennen zou drie hoofdmodellen kunnen ondersteunen (later verder uitgewerkt in een apart deploymentdocument):</p>
 <ol>
 <li><strong>Volledig on-premise bij klant</strong>  </li>
-<li>Fobis Core en een (gedeeltelijke) set platformservices draaien in de klantomgeving.  </li>
+<li>Fobis Core en een (gedeeltelijke) set platformservices zouden kunnen draaien in de klantomgeving.  </li>
 <li>
 <p>Optioneel: verbinding naar RBK-cloud voor licentievalidatie en log-forwarding.  </p>
 </li>
@@ -1873,24 +1873,24 @@
 <li>
 <p><strong>RBK SaaS</strong>  </p>
 </li>
-<li>Platformservices draaien in RBK-cloud.  </li>
-<li>Klanten worden als tenants beheerd.  </li>
-<li>Fobis Core kan:  <ul>
+<li>Platformservices zouden kunnen draaien in RBK-cloud.  </li>
+<li>Klanten zouden als tenants kunnen worden beheerd.  </li>
+<li>Fobis Core zou kunnen:  <ul>
 <li>Voor sommige klanten ook in RBK-cloud draaien.  </li>
 <li>Voor andere klanten on-prem blijven, met een veilige koppeling.  </li>
 </ul>
 </li>
 </ol>
-<p>In alle modellen blijft de logische architectuur gelijk; alleen de <strong>fysieke plaats</strong> van componenten verschilt.</p>
+<p>In alle modellen zou de logische architectuur gelijk kunnen blijven; alleen de <strong>fysieke plaats</strong> van componenten zou kunnen verschillen.</p>
 <hr />
 <h3 id="9-samenvatting">9. Samenvatting</h3>
 <ul>
-<li>Fobis Platform introduceert een duidelijke <strong>platformlaag</strong> tussen Fobis Core, apps en externe systemen.  </li>
-<li>De architectuur is gebaseerd op:  </li>
+<li>Fobis Platform zou een duidelijke <strong>platformlaag</strong> kunnen introduceren tussen Fobis Core, apps en externe systemen.  </li>
+<li>De architectuur die we verkennen is gebaseerd op:  </li>
 <li>Een scheiding tussen <strong>control plane</strong> en <strong>data plane</strong>.  </li>
 <li>Gestandaardiseerde platformservices: auth, autorisatie, licensering, integratie, logging.  </li>
-<li>Multi-tenant denken, ook in on-prem scenario’s.  </li>
-<li>Dit vormt de basis voor:  </li>
+<li>Multi-tenant denken, ook in on-prem scenario's.  </li>
+<li>Dit zou de basis kunnen vormen voor:  </li>
 <li>Een <strong>SaaS-ready</strong> Fobis-ecosysteem.  </li>
 <li>Behoud van <strong>on-prem/hybride</strong> inzetbaarheid.  </li>
 <li>Snellere en beter beheersbare ontwikkeling van nieuwe apps zoals de Drive App.  </li>

@@ -1833,13 +1833,13 @@
 
 <h2 id="fobis-platform-authenticatie-en-autorisatie">Fobis Platform – Authenticatie en autorisatie</h2>
 <h3 id="1-doel-van-dit-document">1. Doel van dit document</h3>
-<p>Dit document beschrijft de <strong>doelarchitectuur</strong> voor authenticatie en autorisatie binnen Fobis Platform:</p>
+<p>Dit document verkent de <strong>doelarchitectuur</strong> voor authenticatie en autorisatie binnen Fobis Platform:</p>
 <ul>
-<li>Hoe gebruikers en systemen zich <strong>authenticeren</strong> (wie ben je?).  </li>
-<li>Hoe wordt bepaald <strong>wat</strong> iemand mag doen (autorisatie).  </li>
-<li>Hoe dit past in een <strong>SaaS-ready, on-prem capable</strong> platformarchitectuur.  </li>
+<li>Hoe gebruikers en systemen zich zouden kunnen <strong>authenticeren</strong> (wie ben je?).  </li>
+<li>Hoe zou kunnen worden bepaald <strong>wat</strong> iemand mag doen (autorisatie).  </li>
+<li>Hoe dit zou kunnen passen in een <strong>SaaS-ready, on-prem capable</strong> platformarchitectuur.  </li>
 </ul>
-<p>Het is richtinggevend en bedoeld als basis voor detailontwerp en implementatie met partners zoals 4DotNet.</p>
+<p>Het is verkennend en richtinggevend, bedoeld als basis voor detailontwerp en implementatie met partners zoals 4DotNet.</p>
 <hr />
 <h3 id="2-uitgangssituatie-en-wensen">2. Uitgangssituatie en wensen</h3>
 <ul>
@@ -1859,27 +1859,27 @@
 </ul>
 <hr />
 <h3 id="3-conceptueel-model">3. Conceptueel model</h3>
-<p>We hanteren een <strong>lagenmodel</strong>:</p>
+<p>We verkennen een <strong>lagenmodel</strong>:</p>
 <ol>
 <li><strong>Identity Provider (IdP)</strong> – authenticatie  </li>
-<li>Verifieert de identiteit van gebruikers (login).  </li>
+<li>Zou de identiteit van gebruikers kunnen verifiëren (login).  </li>
 <li>Voorbeeld: Entra ID, Keycloak, IdentityServer, Auth0, on-prem AD FS.  </li>
 <li>
-<p>Spreekt bij voorkeur <strong>OpenID Connect (OIDC)</strong> en <strong>OAuth2</strong>.  </p>
+<p>Zou bij voorkeur <strong>OpenID Connect (OIDC)</strong> en <strong>OAuth2</strong> kunnen spreken.  </p>
 </li>
 <li>
 <p><strong>Fobis Platform – Identity &amp; Access Layer</strong>  </p>
 </li>
-<li>Ontvangt tokens van de IdP (ID token + access token).  </li>
-<li>Verwerkt claims (user-id, rollen, tenant-id, etc.).  </li>
+<li>Zou tokens van de IdP kunnen ontvangen (ID token + access token).  </li>
+<li>Zou claims kunnen verwerken (user-id, rollen, tenant-id, etc.).  </li>
 <li>
-<p>Beheert rollen, permissies en policies.  </p>
+<p>Zou rollen, permissies en policies kunnen beheren.  </p>
 </li>
 <li>
 <p><strong>Applicaties en services</strong>  </p>
 </li>
-<li>Verifiëren tokens via de platformlaag of rechtstreeks bij de IdP (afhankelijk van scenario).  </li>
-<li>Nemen autorisatiebeslissingen op basis van claims + platform-permissionmodel.  </li>
+<li>Zouden tokens kunnen verifiëren via de platformlaag of rechtstreeks bij de IdP (afhankelijk van scenario).  </li>
+<li>Zouden autorisatiebeslissingen kunnen nemen op basis van claims + platform-permissionmodel.  </li>
 </ol>
 <hr />
 <h3 id="4-authenticatie-ontwerp">4. Authenticatie – ontwerp</h3>
@@ -1893,7 +1893,7 @@
 <li>API Gateway en backend-services valideren dit token.  </li>
 </ul>
 <h4 id="42-identity-provider-keuze">4.2 Identity Provider-keuze</h4>
-<p>De architectuur laat meerdere IdP’s toe, maar we definiëren een <strong>voorkeursrichting</strong>:</p>
+<p>De architectuur die we verkennen zou meerdere IdP's kunnen toelaten, maar we verkennen een <strong>voorkeursrichting</strong>:</p>
 <ul>
 <li>Voor RBK-managed omgevingen (SaaS of shared cloud):  </li>
 <li>Een centrale IdP (bijv. Entra ID tenant van RBK of dedicated IdP zoals Keycloak).  </li>
@@ -1917,16 +1917,16 @@
 <li>Eventueel aangevuld met <strong>fijnmazigere permissies</strong> (feature flags, claims voor specifieke modules).  </li>
 </ul>
 <h4 id="51-rollen-en-rechtenmodel">5.1 Rollen- en rechtenmodel</h4>
-<p>Op platformniveau definiëren we ten minste:</p>
+<p>Op platformniveau verkennen we ten minste:</p>
 <ul>
 <li><strong>Gebruikersrollen</strong> (per tenant):  </li>
 <li>Chauffeur, planner, productiemanager, systeembeheerder klant.  </li>
 <li><strong>Platformrollen</strong>:  </li>
 <li>RBK-support, RBK-admin.  </li>
 </ul>
-<p>Rollen bepalen:</p>
+<p>Rollen zouden kunnen bepalen:</p>
 <ul>
-<li>Welke API’s iemand mag aanroepen.  </li>
+<li>Welke API's iemand mag aanroepen.  </li>
 <li>Welke gegevens iemand mag zien.  </li>
 <li>Welke tenant(s) iemand kan benaderen (meestal één, soms meer voor RBK-support).  </li>
 </ul>
@@ -2002,12 +2002,12 @@
 <hr />
 <h3 id="9-samenvatting">9. Samenvatting</h3>
 <ul>
-<li>Fobis Platform gebruikt <strong>OpenID Connect + OAuth2</strong> voor authenticatie en API-toegang.  </li>
-<li>Autorisatie is <strong>claims-based</strong>, met een centraal gedefinieerd rollen- en permissiemodel.  </li>
-<li>De architectuur ondersteunt:  </li>
-<li>RBK-SaaS, klant-cloud en pure on-prem scenario’s.  </li>
+<li>Fobis Platform zou kunnen gebruiken <strong>OpenID Connect + OAuth2</strong> voor authenticatie en API-toegang.  </li>
+<li>Autorisatie zou <strong>claims-based</strong> kunnen zijn, met een centraal gedefinieerd rollen- en permissiemodel.  </li>
+<li>De architectuur die we verkennen zou kunnen ondersteunen:  </li>
+<li>RBK-SaaS, klant-cloud en pure on-prem scenario's.  </li>
 <li>Federatie met klant-identity systemen.  </li>
-<li>Dit legt een consistente basis voor alle toekomstige apps, waaronder de Drive App, en maakt Fobis Platform <strong>open, veilig en goed beheersbaar</strong>.  </li>
+<li>Dit zou een consistente basis kunnen leggen voor alle toekomstige apps, waaronder de Drive App, en zou Fobis Platform <strong>open, veilig en goed beheersbaar</strong> kunnen maken.  </li>
 </ul>
 
 

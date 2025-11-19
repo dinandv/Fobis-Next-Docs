@@ -1755,22 +1755,22 @@
 
 <h2 id="fobis-platform-licensing-service-architectuur">Fobis Platform – Licensing Service Architectuur</h2>
 <h3 id="1-doel-van-dit-document">1. Doel van dit document</h3>
-<p>Dit document beschrijft de <strong>conceptuele en logische opzet</strong> van een centrale licensing-service voor Fobis Platform:</p>
+<p>Dit document verkent de <strong>conceptuele en logische opzet</strong> van een centrale licensing-service voor Fobis Platform:</p>
 <ul>
-<li>Hoe licenties voor klanten/tenants worden gemodelleerd.  </li>
-<li>Hoe apps (zoals de Drive App) en Fobis Core licenties controleren.  </li>
-<li>Hoe dit werkt in zowel <strong>SaaS</strong> als <strong>on-prem/hybride</strong> scenario’s.  </li>
+<li>Hoe licenties voor klanten/tenants zouden kunnen worden gemodelleerd.  </li>
+<li>Hoe apps (zoals de Drive App) en Fobis Core licenties zouden kunnen controleren.  </li>
+<li>Hoe dit zou kunnen werken in zowel <strong>SaaS</strong> als <strong>on-prem/hybride</strong> scenario's.  </li>
 </ul>
 <hr />
 <h3 id="2-uitgangspunten-en-doelen">2. Uitgangspunten en doelen</h3>
 <ul>
 <li>Licensering is nu sterk verweven met Fobis zelf en deels technisch geïmplementeerd.  </li>
-<li>We willen naar een <strong>centrale, platformbrede licenseringsoplossing</strong> die:  </li>
-<li>Eenduidig is voor alle applicaties.  </li>
-<li>Als <strong>losse service</strong> beschikbaar is binnen het platform.  </li>
-<li>Zowel online (SaaS) als offline/gesloten omgevingen ondersteunt.  </li>
+<li>We verkennen een <strong>centrale, platformbrede licenseringsoplossing</strong> die:  </li>
+<li>Eenduidig zou kunnen zijn voor alle applicaties.  </li>
+<li>Als <strong>losse service</strong> beschikbaar zou kunnen zijn binnen het platform.  </li>
+<li>Zowel online (SaaS) als offline/gesloten omgevingen zou kunnen ondersteunen.  </li>
 </ul>
-<p>Doelen:</p>
+<p>Doelen die we nastreven:</p>
 <ul>
 <li><strong>Transparantie</strong>: duidelijk wat een klant/tenant heeft afgenomen.  </li>
 <li><strong>Beheersbaarheid</strong>: centraal beheer en inzicht voor RBK (en deels voor klanten).  </li>
@@ -1800,9 +1800,9 @@
 </ul>
 <hr />
 <h3 id="4-architectuur-van-de-licensing-service">4. Architectuur van de licensing-service</h3>
-<p>De licensing-service is een <strong>centrale backend-service</strong> met:</p>
+<p>De licensing-service zou een <strong>centrale backend-service</strong> kunnen zijn met:</p>
 <ul>
-<li><strong>API’s</strong> voor:  </li>
+<li><strong>API's</strong> voor:  </li>
 <li>RBK-beheer (aanmaken/wijzigen licenties).  </li>
 <li>Applicaties (controleren of een licentie geldig is).  </li>
 <li><strong>Database</strong>:  </li>
@@ -1941,11 +1941,11 @@
 <hr />
 <h3 id="10-samenvatting">10. Samenvatting</h3>
 <ul>
-<li>De licensing-service maakt licensering tot een <strong>centrale, herbruikbare capability</strong> van Fobis Platform.  </li>
-<li>Het model ondersteunt:  </li>
+<li>De licensing-service zou licensering tot een <strong>centrale, herbruikbare capability</strong> van Fobis Platform kunnen maken.  </li>
+<li>Het model dat we verkennen zou kunnen ondersteunen:  </li>
 <li>Meerdere producten en modules per tenant.  </li>
-<li>Zowel SaaS als on-prem/hybride scenario’s (met offline opties).  </li>
-<li>Licensering werkt samen met auth en autorisatie, maar blijft een <strong>eigen verantwoordelijkheid</strong>:  </li>
+<li>Zowel SaaS als on-prem/hybride scenario's (met offline opties).  </li>
+<li>Licensering zou kunnen werken samen met auth en autorisatie, maar zou een <strong>eigen verantwoordelijkheid</strong> kunnen blijven:  </li>
 <li>Auth: wie ben je?  </li>
 <li>Autorisatie: wat mag je?  </li>
 <li>Licensering: waarvoor is betaald/vrijgegeven?  </li>

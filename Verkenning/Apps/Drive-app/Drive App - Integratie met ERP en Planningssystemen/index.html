@@ -1701,13 +1701,13 @@
 
 <h2 id="drive-app-integratie-met-erp-en-planningssystemen-via-fobis-platform">Drive App – Integratie met ERP- en planningssystemen via Fobis Platform</h2>
 <h3 id="1-doel">1. Doel</h3>
-<p>Dit document beschrijft hoe we de Drive App <strong>architectonisch loskoppelen</strong> van Fobis Core en van specifieke ERP-/planningssystemen (zoals Exact Globe en Odoo), door:</p>
+<p>Dit document verkent hoe we de Drive App <strong>architectonisch zouden kunnen loskoppelen</strong> van Fobis Core en van specifieke ERP-/planningssystemen (zoals Exact Globe en Odoo), door:</p>
 <ul>
 <li>Een <strong>canoniek model</strong> voor ritten/stops in Fobis Platform te gebruiken.  </li>
 <li>Integratie met bronsystemen te regelen via <strong>adapters</strong> in de platformlaag.  </li>
-<li>De Drive App uitsluitend tegen <strong>platform-API’s</strong> te laten praten.  </li>
+<li>De Drive App uitsluitend tegen <strong>platform-API's</strong> te laten praten.  </li>
 </ul>
-<p>Doel: vandaag starten met Fobis als bron, maar het ontwerp zo maken dat <strong>ieder plannings-/ERP-systeem kan aanhaken</strong> zonder de app zelf te wijzigen.</p>
+<p>Doel: vandaag starten met Fobis als bron, maar het ontwerp zo maken dat <strong>ieder plannings-/ERP-systeem zou kunnen aanhaken</strong> zonder de app zelf te wijzigen.</p>
 <hr />
 <h3 id="2-hoog-over-architectuur">2. Hoog-over architectuur</h3>
 <p>Logische keten:</p>
@@ -1725,7 +1725,7 @@
 <p>Belangrijk principe: <strong>de Drive App weet niets van het onderliggende planningssysteem</strong> – alle mapping gebeurt in de platformlaag.</p>
 <hr />
 <h3 id="3-canoniek-model-in-fobis-platform">3. Canoniek model in Fobis Platform</h3>
-<p>We definiëren in Fobis Platform een <strong>eigen, systeem-onafhankelijk datamodel</strong> voor ritten en stops, bijvoorbeeld:</p>
+<p>We verkennen in Fobis Platform een <strong>eigen, systeem-onafhankelijk datamodel</strong> voor ritten en stops, bijvoorbeeld:</p>
 <ul>
 <li><code>Trip</code> (rit)  </li>
 <li><code>tripId</code> (platform-id)  </li>
@@ -1880,11 +1880,11 @@ De platformservices zorgen ervoor dat:</p>
 <hr />
 <h3 id="10-samenvatting">10. Samenvatting</h3>
 <ul>
-<li>Architectonisch bereiken we de gewenste onafhankelijkheid door:  </li>
+<li>Architectonisch zouden we de gewenste onafhankelijkheid kunnen bereiken door:  </li>
 <li>Een <strong>canoniek rit-/stopmodel</strong> in Fobis Platform.  </li>
 <li><strong>Adapters</strong> per plannings-/ERP-systeem.  </li>
-<li>Een <strong>Drive App</strong> die uitsluitend met platform-API’s praat.  </li>
-<li>In de praktijk starten we met Fobis Core als bronsysteem, maar het ontwerp maakt het mogelijk om later <strong>Exact, Odoo of andere systemen</strong> aan te haken zonder de Drive App zelf aan te passen.  </li>
+<li>Een <strong>Drive App</strong> die uitsluitend met platform-API's praat.  </li>
+<li>In de praktijk zouden we kunnen starten met Fobis Core als bronsysteem, maar het ontwerp zou het mogelijk kunnen maken om later <strong>Exact, Odoo of andere systemen</strong> aan te haken zonder de Drive App zelf aan te passen.  </li>
 </ul>
 
 

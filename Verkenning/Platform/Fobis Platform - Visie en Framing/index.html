@@ -1620,22 +1620,22 @@
 <li>Heldere API’s en events.  </li>
 <li>Standaard patronen voor security, logging, deployment.  </li>
 </ul>
-<p>Daarom is het nodig om Fobis te ontwikkelen van een <strong>monolithisch product</strong> naar een <strong>platform</strong>:</p>
+<p>Daarom verkennen we de ontwikkeling van Fobis van een <strong>monolithisch product</strong> naar een <strong>platform</strong>:</p>
 <ul>
-<li>Een <strong>open integratie- en applicatiebasis</strong> waar Fobis Core, nieuwe apps en partneroplossingen bovenop draaien.  </li>
-<li>Een platform dat <strong>Fobis ontsluit</strong>: data, processen en services die nu “binnen” het product zitten, beschikbaar maken via moderne interfaces.  </li>
+<li>Een <strong>open integratie- en applicatiebasis</strong> waar Fobis Core, nieuwe apps en partneroplossingen bovenop zouden kunnen draaien.  </li>
+<li>Een platform dat <strong>Fobis ontsluit</strong>: data, processen en services die nu "binnen" het product zitten, beschikbaar maken via moderne interfaces.  </li>
 </ul>
 <h3 id="3-visie-saas-ready-on-prem-capable">3. Visie: SaaS-ready, on-prem capable</h3>
-<p>De kern van de visie:</p>
+<p>De kern van de visie die we verkennen:</p>
 <ul>
-<li>Fobis Platform wordt ontworpen als <strong>“SaaS-ready, on-prem capable”</strong>:  </li>
-<li>Architectuur, componenten en processen zijn geschikt voor een echte <strong>SaaS-uitrol</strong> (multi-tenant, centraal beheer, observability).  </li>
-<li>Tegelijkertijd moet hetzelfde platform <strong>ook on-premise of hybride</strong> inzetbaar zijn.  </li>
-<li>In plaats van een éénmalige SaaS-sprong, bouwen we <strong>een platform</strong> dat:  </li>
-<li>Vandaag al <strong>waarde levert</strong> aan on-prem klanten.  </li>
-<li>Morgen zonder grote herbouw kan opschalen naar <strong>SaaS en industry-platform</strong>.  </li>
+<li>Fobis Platform zou kunnen worden ontworpen als <strong>"SaaS-ready, on-prem capable"</strong>:  </li>
+<li>Architectuur, componenten en processen zouden geschikt kunnen zijn voor een echte <strong>SaaS-uitrol</strong> (multi-tenant, centraal beheer, observability).  </li>
+<li>Tegelijkertijd zou hetzelfde platform <strong>ook on-premise of hybride</strong> inzetbaar moeten kunnen zijn.  </li>
+<li>In plaats van een éénmalige SaaS-sprong, verkennen we <strong>een platform</strong> dat:  </li>
+<li>Vandaag al <strong>waarde zou kunnen leveren</strong> aan on-prem klanten.  </li>
+<li>Morgen zonder grote herbouw zou kunnen opschalen naar <strong>SaaS en industry-platform</strong>.  </li>
 </ul>
-<p>Concreet betekent dit:</p>
+<p>Concreet zou dit kunnen betekenen:</p>
 <ul>
 <li><strong>12-factor-achtige services</strong> die configuratie uit omgeving/secrets halen en niet vastzitten aan één datacenter.  </li>
 <li><strong>Multi-tenant</strong> denken in design (tenant-id in data/logging/security), ook als een on-prem installatie single-tenant is.  </li>
@@ -1652,22 +1652,22 @@
 <li>Integratie met externe identity-oplossingen moeilijker.  </li>
 <li>Beheer en support lastiger.  </li>
 </ul>
-<p>Toekomstbeeld binnen Fobis Platform:</p>
+<p>Toekomstbeeld dat we verkennen binnen Fobis Platform:</p>
 <ul>
 <li><strong>Authenticatie</strong>:  </li>
-<li>Gebaseerd op <strong>OpenID Connect (OIDC)</strong> en <strong>OAuth2</strong> met een moderne identity provider (bijv. Entra ID, Keycloak, Auth0, IdentityServer).  </li>
-<li>Ondersteuning voor klant-specifieke identity (bijv. on-prem AD) via federatie.  </li>
+<li>Mogelijk gebaseerd op <strong>OpenID Connect (OIDC)</strong> en <strong>OAuth2</strong> met een moderne identity provider (bijv. Entra ID, Keycloak, Auth0, IdentityServer).  </li>
+<li>Ondersteuning voor klant-specifieke identity (bijv. on-prem AD) via federatie zou mogelijk kunnen zijn.  </li>
 <li><strong>Autorisatie</strong>:  </li>
-<li><strong>Claims-based</strong> autorisatie met rollen en rechten die in tokens en een centraal permission model zijn vastgelegd.  </li>
-<li>Geen hardcoded permissies per applicatie, maar een gedeeld model dat door alle Fobis Platform-apps wordt gebruikt.  </li>
+<li><strong>Claims-based</strong> autorisatie met rollen en rechten die in tokens en een centraal permission model zouden kunnen worden vastgelegd.  </li>
+<li>Geen hardcoded permissies per applicatie, maar een gedeeld model dat door alle Fobis Platform-apps zou kunnen worden gebruikt.  </li>
 <li><strong>Licensering</strong>:  </li>
-<li>Een centrale <strong>licensing-service</strong> die licenties per klant/tenant, per module/feature en per omgeving vastlegt.  </li>
-<li>Apps raadplegen de licensing-service om te bepalen <strong>welke functionaliteit beschikbaar is</strong>.  </li>
+<li>Een centrale <strong>licensing-service</strong> die licenties per klant/tenant, per module/feature en per omgeving zou kunnen vastleggen.  </li>
+<li>Apps zouden de licensing-service kunnen raadplegen om te bepalen <strong>welke functionaliteit beschikbaar is</strong>.  </li>
 </ul>
-<p>Dit maakt Fobis:</p>
+<p>Dit zou Fobis kunnen maken tot:</p>
 <ul>
-<li><strong>Open en uitbreidbaar</strong>: nieuwe apps en partners kunnen op dezelfde manier aanhaken.  </li>
-<li><strong>Consistent</strong>: gebruikerservaring en security-gedrag zijn herkenbaar over alle applicaties heen.  </li>
+<li><strong>Open en uitbreidbaar</strong>: nieuwe apps en partners zouden op dezelfde manier kunnen aanhaken.  </li>
+<li><strong>Consistent</strong>: gebruikerservaring en security-gedrag zouden herkenbaar kunnen zijn over alle applicaties heen.  </li>
 <li><strong>Toekomstbestendig</strong>: makkelijker om aan te sluiten op industrie-standaarden en ecosystemen.  </li>
 </ul>
 <h3 id="5-logging-en-observability-als-eerste-klas-onderdeel">5. Logging en observability als eerste klas onderdeel</h3>
@@ -1679,14 +1679,14 @@
 <li>Proactief detecteren van problemen.  </li>
 <li>Geavanceerde (AI-)analyses op klantomgevingen.  </li>
 </ul>
-<p>Visie:</p>
+<p>Visie die we verkennen:</p>
 <ul>
-<li>Serilog blijft, maar wordt onderdeel van een breder <strong>observability-verhaal</strong>:  </li>
+<li>Serilog zou kunnen blijven, maar zou onderdeel kunnen worden van een breder <strong>observability-verhaal</strong>:  </li>
 <li>Gestructureerde logging (JSON) met o.a. tenant-id, correlation-id, severity, event type.  </li>
 <li>Gebruik van <strong>pluggable sinks</strong>: file/SQL voor pure on-prem, plus een sink naar een centrale log-provider (Seq, Elastic, Application Insights, ...).  </li>
-<li>Basis-metrics (health, errors, throughput, performance) en tracing worden standaard.  </li>
-<li>Doel:  </li>
-<li><strong>Proactieve serviceorganisatie</strong>: RBK kan problemen signaleren voordat de klant belt.  </li>
+<li>Basis-metrics (health, errors, throughput, performance) en tracing zouden standaard kunnen worden.  </li>
+<li>Doel dat we nastreven:  </li>
+<li><strong>Proactieve serviceorganisatie</strong>: RBK zou problemen kunnen signaleren voordat de klant belt.  </li>
 <li>Mogelijkheid tot <strong>AI-ondersteunde analyses</strong> op logdata en metrics.  </li>
 </ul>
 <h3 id="6-omgaan-met-de-angst-voor-saas-binnen-rbk">6. Omgaan met de angst voor SaaS binnen RBK</h3>
@@ -1698,37 +1698,37 @@
 </ul>
 <p>Kernboodschap van deze visie:</p>
 <ul>
-<li>We bouwen <strong>geen</strong> rigide SaaS-only oplossing.  </li>
-<li>We bouwen een <strong>platform</strong> dat:  </li>
-<li><strong>SaaS-ready</strong> is (zodat we als RBK commercieel kunnen opschalen en internationaal kunnen groeien).  </li>
-<li>Tegelijkertijd op een <strong>controleerbare, voorspelbare manier on-prem/hybride</strong> uit te rollen is.  </li>
+<li>We verkennen <strong>geen</strong> rigide SaaS-only oplossing.  </li>
+<li>We verkennen een <strong>platform</strong> dat:  </li>
+<li><strong>SaaS-ready</strong> zou kunnen zijn (zodat we als RBK commercieel kunnen opschalen en internationaal kunnen groeien).  </li>
+<li>Tegelijkertijd op een <strong>controleerbare, voorspelbare manier on-prem/hybride</strong> uit te rollen zou kunnen zijn.  </li>
 </ul>
-<p>Belangrijke argumenten:</p>
+<p>Belangrijke argumenten die we meenemen:</p>
 <ul>
 <li>De huidige situatie met vele gespreide on-prem installaties is óók complex in beheer:  </li>
 <li>Versieverspreiding, maatwerk, verschillende configuraties per klant.  </li>
 <li>Moeilijk centraal inzicht in gezondheid en gebruik.  </li>
-<li>Een moderne, gestandaardiseerde platformarchitectuur maakt beheer <strong>uiteindelijk makkelijker</strong>:  </li>
+<li>Een moderne, gestandaardiseerde platformarchitectuur zou beheer <strong>uiteindelijk makkelijker</strong> kunnen maken:  </li>
 <li>Eenduidige deploymentmodellen.  </li>
 <li>Centraal gedefinieerde beveiliging, logging en monitoring.  </li>
 <li>Tools voor provisioning, updates, incident-response.  </li>
 </ul>
 <h3 id="7-commerciele-ambitie-fobis-als-industry-platform">7. Commerciële ambitie: Fobis als industry-platform</h3>
-<p>De gewenste richting:</p>
+<p>De richting die we verkennen:</p>
 <ul>
-<li>Fobis wordt niet alleen “nog een pakket” dat moet koppelen met systemen als Exact of Odoo.  </li>
-<li>Fobis Platform wordt een <strong>industry-standaard</strong> integratiepunt:  </li>
-<li>Andere partijen willen juist <strong>koppelen met Fobis</strong>.  </li>
-<li>Denk aan de vraag: “Kunnen we een koppeling maken met <strong>Fobis Next</strong>?” in plaats van andersom.  </li>
+<li>Fobis zou niet alleen "nog een pakket" kunnen zijn dat moet koppelen met systemen als Exact of Odoo.  </li>
+<li>Fobis Platform zou een <strong>industry-standaard</strong> integratiepunt kunnen worden:  </li>
+<li>Andere partijen zouden juist <strong>kunnen koppelen met Fobis</strong>.  </li>
+<li>Denk aan de vraag: "Kunnen we een koppeling maken met <strong>Fobis Next</strong>?" in plaats van andersom.  </li>
 </ul>
-<p>Randvoorwaarden om dit te bereiken:</p>
+<p>Randvoorwaarden die we verkennen om dit te bereiken:</p>
 <ul>
-<li><strong>Open, goed gedocumenteerde API’s</strong> en event-interfaces.  </li>
+<li><strong>Open, goed gedocumenteerde API's</strong> en event-interfaces.  </li>
 <li>Heldere security- en licentie-architectuur.  </li>
 <li>Stabiele, voorspelbare deploymentmodellen (zowel on-prem, klant-cloud als RBK SaaS).  </li>
 </ul>
 <h3 id="8-samenvatting-in-een-zin">8. Samenvatting in één zin</h3>
-<p>Fobis Platform is de evolutie van Fobis van een on-prem product naar een <strong>modern, open en SaaS-ready platform</strong> dat tegelijkertijd <strong>on-prem en hybride</strong> inzetbaar blijft, en waarmee RBK de basis legt om een <strong>industry-standaard</strong> in de foodproductie te worden.</p>
+<p>Fobis Platform is een verkenning van de evolutie van Fobis van een on-prem product naar een <strong>modern, open en SaaS-ready platform</strong> dat tegelijkertijd <strong>on-prem en hybride</strong> inzetbaar zou kunnen blijven, en waarmee RBK de basis zou kunnen leggen om een <strong>industry-standaard</strong> in de foodproductie te worden.</p>
 
 
 
